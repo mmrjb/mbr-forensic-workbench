@@ -1,0 +1,159 @@
+Modules work in a similar fashion to Targets in that they look for certain types of files, but rather than copy them somewhere else, a Module’s job is to run programs against files, often generating output in the form of CSV or text that can then be reviewed by an examiner. Modules have an **`.mkape`** extension.
+
+NOTE: Modules can only run ONE command; as such, you need a Module for every executable you want to run against collected data.
+
+Here is an example of what a Module might look like:
+
+![Module example](https://raw.githubusercontent.com/EricZimmerman/KapeDocs/master/Pictures/ModuleExample.jpg)
+
+## Description
+<font size="3" color="red">REQUIRED</font>
+This describes the purpose of the Module and should contain enough detail to make it obvious what kinds of files will be processed. KAPE can dump full details about Modules as well so each of the Modules’ options are shown, but description serves as a nice summary of what is going to happen with this Module.
+
+## Category
+<font size="3" color="red">REQUIRED</font>
+The category this Module belongs to. In other words, what kind of artifact does the Module process. Some examples include: ProgramExecution, Registry, FileFolderOpening, FileDownload, DeletedFiles, FileKnowledge, Location, ExternalDevices, AccountUsage, BrowserUsage, Persistence and Communications.
+
+The Category is used to group Modules that all Target the same thing, so the output from say, Amcache and ShimCache will both end up in the same ProgramExecution output directory.
+
+In short, related types of artifacts all end up in the same place, so it’s a one stop shop for all things related to a given category.
+
+## Author
+<font size="3" color="red">REQUIRED</font>
+The person who created the Module. Should include at least name, but email address can also be included.
+
+## Version
+<font size="3" color="red">REQUIRED</font>
+The version of the Module file. This should be incremented as additional processors are added, etc.
+
+## Id
+<font size="3" color="red">REQUIRED</font>
+
+A unique (relative to all other Modules) GUID that allows KAPE to track which Modules have been processed. As we will soon see, Modules can reference other Module files and the Id field prevents KAPE from running the same Module over if it should be referenced by one or more Module files.
+
+When creating Modules (or Targets, for that matter), you can generate GUIDs with KAPE using the following command: `kape.exe --guids`
+
+![KapeGuids](https://raw.githubusercontent.com/AndrewRathbun/KapeDocs/master/Pictures/KapeGuids.jpg)
+
+## BinaryUrl
+Include a link to where KAPE users can download the binary required for the Module to execute successfully. 
+
+# Modules
+
+## ExportFormat
+<font size="3" color="red">REQUIRED</font>
+This is used to pick the default export processor (discussed next) should a given program be able to export results in different formats. In the example above for LECmd, there are three processors defined. Unless specified otherwise on the command line, this Module would export its results to CSV by using the first processor in the list. Not all Modules will have more than one processor and again, it is important to remember that only ONE processor will be run from any given Module.
+
+## WaitTimeout
+Optional variable that, when set and greater than 0, signifies the number of minutes KAPE should wait for a Module to finish. If this is exceeded, KAPE will stop waiting and move on. Default timeout is forever.
+
+## FileMask
+Optional variable that, when set, tells KAPE that this Module is interested in files with the name specified. This is useful to target a specific file, like a `SYSTEM` Registry hive, or the `$MFT`.
+
+Typically, a pattern like `'\*.jpg'` would be specified. Under the hood, KAPE will convert this to a regular expression: `'.+\\.jpg'`. Note that you can also, as of v0.9.2.0, specify masks such as `'Foo*.txt'` or `'\*Wizzo*.jpg'` and KAPE will do the rest.
+
+For more powerful filtering, KAPE allows for supplying a regular expression for FileMask by prepending the FileMask value with 'regex:'. For example: 
+
+**FileMask: `regex:(2019|DSC|Log).+\\.(jpg|txt)`**
+
+Regardless of the file mask used, KAPE will add `\A` to the beginning of the regex and `\z` to the end, so that the _entire_ filename will be matched (In other words, a partial match will NOT be copied).
+
+## Processors
+Processors is a list of available processors, where ONE will be chosen from the list. 
+
+NOTE: At least one processor is required!
+
+A processor breaks down as follows:
+
+### Executable
+<font size="3" color="red">REQUIRED</font>
+The name of the program to run. The path to the executable is NOT necessary and only the name of the executable (with extension) should be given. While you can use the absolute path, consider how this can break portability.
+
+KAPE can also detect and run CPU architecture specific versions of Module executables. Before KAPE runs a Module, the CPU architecture is detected. KAPE assumes the executable provided will work on all platforms, but if you need an x86 specific executable for a Module, follow the following procedure:
+
+1. Rename the 32-bit version of the executable the same name as the main executable, but end the file name with `'_x86'``
+2. Place the x86 version of the binary next to the main executable
+
+Example: If you had the following property in a Module:
+
+`Executable: foo.exe`
+
+Having a file named `"foo_x86.exe"` in same directory as `foo.exe`, `foo_x86.exe` would be the actual program executed when KAPE detects it is running on a non 64-bit system.
+
+HINT: Use `--debug` to see the selection process take place
+
+#### Executable file locations
+In most cases, this executable should be placed in the **[KAPE directory]\Modules\bin** directory, along with any additional support files it needs to run (like a license file, etc.). 
+
+In the case where you have two executables you want to use with the same name, you can also place the executable in a directory named after the Module. 
+
+For example, if you had a Module named LECmd.mkape that uses an executable named `‘LECmd.exe’`, you could place this binary in the **[KAPE directory]\Modules\bin** folder OR make a directory under `[KAPE directory]\Modules` named `‘LECmd’` and place the binary in that directory (**[KAPE directory]\Modules\LECmd\LECmd.exe** for example).
+
+1. When locating the executable, KAPE will first look for a binary in a directory named after the Module.
+2. If this directory is not found, the bin folder is checked. If the binary does not exist in either of those two places, processing for the Module will stop and a warning will be displayed on the console.
+
+WARNING: If using mklink, the `/h` switch is required, or the executable will not be found. 
+
+For example: 
+
+`mklink /h "c:\KAPE\Modules\bin" densityscout.exe`
+
+Without the `/h` switch the executable will not be found.
+
+### CommandLine
+<font size="3" color="red">REQUIRED</font>
+The parameters to pass to the executable. There are several variables that can be used that will be replaced by KAPE at runtime:
+
+| VARIABLE NAME | PURPOSE     | NOTES |
+| ------------- |-------------| ----- |
+| `%sourceDriveLetter%`  | The base drive letter of the path specified for `--msource`. | Useful for Modules that expect only a drive letter without any additional path information (ex. `manage-bde.exe`). Ex: For `--msource c:\temp\foo`, this would evaluate to `C:` |
+| `%sourceDirectory%`  | The full path to the directory where all files can be found | Useful for Modules that process several different kinds of files, like a strings utility, or something that knows how to process a directory and look for file masks on its own |
+| `%destinationDirectory%`  | The full path to the root directory where a file will be saved   |   This will be the full path to the destination directory along with the name of the Category appended to it |
+| `%sourceFile%` | For Modules that use *FileMask*, the full path to the file      |    Useful for programs that expect a single file vs a directory |
+| `%sourceDirectoryBase%` | For Modules that use *FileMask*, 'base' directory under `--tdest`. Examples: C, VSS1, VSS2, etc.     |  Useful to group output by where the files were found   |
+| `%kapeDirectory%` | Replaced with the full path to where `kape.exe` was executed | Useful to have a reference point for config files to pass to Modules, etc. |
+| `%fileName%` | Replaced with the file name being processed by a Module | This is specific to the ExportFile property |
+| `%d%` | Replaced with current date/time | UTC in yyyyMMddTHHmmss format |
+| `%guid%` | Replaced with random GUID | Useful for making filename output unique |
+
+In regard to the `%fileName%` variable, if your Module was looking for `‘main.db’` and KAPE found one to process at `C:\temp\tout\C\someDir\main.db`, KAPE would replace `%fileName%` with `main.db`. It is useful to have the ExportFile property reflect the name of the file where the data came from, like this:
+
+![fileName var](https://raw.githubusercontent.com/EricZimmerman/KapeDocs/master/Pictures/fileNameVar.jpg)
+
+### ExportFile
+An optional value that, when set, will redirect standard out and standard error to the file name specified. This should be the name of a file ONLY and should not include any variables or other path information. 
+
+As an example, consider this Module:
+
+![ExportFile example](https://raw.githubusercontent.com/EricZimmerman/KapeDocs/master/Pictures/ExportFileExample.jpg)
+
+One reason for this capability is to handle tools that do not have an option to save the results directly to a file and rely on redirection to save the output. In the example above, an ExportFile value of `"devices.txt"` is specified. When this Module is run, all output from `cafae64.exe` will be captured in `devices.txt`, located in `%destinationDirectory%\[Category]`. 
+
+KAPE is also smart enough to not overwrite files if they already exist and will append a number to the end of the file if more than one SYSTEM hive exists. This would then result in multiple ExportFile creation such as `device.txt`, `device1.txt`, `device2.txt`, and so on. With this said...
+
+WARNING: Do NOT try to use redirection on the command line. It will NOT work! i.e. do not do this:
+
+`CommandLine: -hive %sourceFile% -csv -devices -no_regkey_hdr > %destinationDirectory%\devices.txt`
+
+### Append
+An optional, boolean value that works in conjunction with ExportFile. If ExportFile is set and Append is false, KAPE will make sure a new, unique output file is generated. If ExportFile is set and Append is true, KAPE will append all output for the Module to ExportFile. For example, this is useful for processing several `NTUser.dat` hives and getting all the output in a single file, vs one file per `NTUser.dat` hive.
+
+As with Targets, Modules also understand referencing other Modules, so we can do things like this:
+
+![Compound Module example](https://raw.githubusercontent.com/EricZimmerman/KapeDocs/master/Pictures/CompoundModuleExample.jpg)
+
+As was the case with Targets, there is also a !ALL Module that works in exactly the same way as the Target one did.
+
+## !Disabled
+
+The `!Disabled` folder provides the end user with the opportunity to store Modules within their KAPE instance that they don't want to appear in the active Modules list. Currently, there exists some disabled Modules that can give you a running start for creating your own Modules to use internally. To illustrate this, see the demonstration below (involving Targets):
+
+![DisabledFolderDemo](https://github.com/EricZimmerman/KapeDocs/blob/master/Pictures/DisabledFolderDemo.jpg)
+
+## !Local Folder
+
+The `!Local` directory provides the end user with the opportunity to store their own custom Modules that may not have a widespread application for the general public. An example of this can be a Module created specifically for your internal corporate environment using tools developed internally.  
+
+If a Module exists within your KAPE instance that isn't apart of the official [KapeFiles](https://github.com/EricZimmerman/KapeFiles) GitHub repo, when a `.\kape.exe --sync` command is ran (or either of the `!!ToolSync`/`Sync_KAPE` Modules), the Module(s) that exist locally only and not in the public repo will be moved to the `!Local` folder. To illustrate this, see the demonstration below:
+
+![KapeSyncLocalDemo](https://github.com/EricZimmerman/KapeDocs/blob/master/Pictures/KapeSyncLocalDemo.gif)

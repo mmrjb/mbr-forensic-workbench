@@ -1,0 +1,1342 @@
+{
+ "schema_version": 1,
+ "kind": "reviewed_tool_catalogue",
+ "reviewed_utc": "2026-10-28T09:40:00Z",
+ "catalogue_source": "https://ericzimmerman.github.io/",
+ "catalogue_notes": [
+  "GUI tools are .net 10 only, except TimeApp, which is also built for .net 4.",
+  "CLI tools are built for both .net 4.7.2 and .net 10, except AmcacheParser, SQLECmd, VSCMount and WxTCmd, which are .net 10 only.",
+  ".net 4 software requires at least .NET Framework 4.7.2 (TimeApp: 4.8). .net 10 software requires the .NET 10 runtime; GUI programs need the Desktop runtime.",
+  "All software is digitally signed (observed leaf signer on 2026-10 builds: 'ZimTech LLC', Sectigo Public Code Signing CA R36 chain)."
+ ],
+ "runtime_links": {
+  "net10": "https://dotnet.microsoft.com/en-us/download/dotnet/10.0",
+  "netfx472": "https://dotnet.microsoft.com/en-us/download/dotnet-framework/net472",
+  "netfx48": "https://dotnet.microsoft.com/en-us/download/dotnet-framework/net48"
+ },
+ "allowed_download_origins": [
+  "https://download.ericzimmermanstools.com"
+ ],
+ "allowed_catalogue_origins": [
+  "https://ericzimmerman.github.io"
+ ],
+ "tools": [
+  {
+   "id": "amcacheparser",
+   "name": "AmcacheParser",
+   "kind": "cli",
+   "integration": "cli_adapter",
+   "category": "Program presence & execution",
+   "description": "Amcache.hve parser with lots of extra features, including the Windows 11 26H2 Amcache databases. Handles locked files",
+   "homepage": "https://ericzimmerman.github.io/",
+   "repository": "https://github.com/EricZimmerman/AmcacheParser",
+   "repository_status": "unconfirmed: GitHub unreachable from build host on 2026-10-28",
+   "documentation": "https://github.com/EricZimmerman/AmcacheParser#readme",
+   "downloads": {
+    "net10": {
+     "url": "https://download.ericzimmermanstools.com/net/AmcacheParser.zip",
+     "catalogue_version": "2026.10.1"
+    }
+   },
+   "executable": "AmcacheParser.exe",
+   "archive_subdir": null,
+   "managed_assembly": "AmcacheParser.dll",
+   "input_types": [
+    "amcache_hive",
+    "amcache_folder"
+   ],
+   "output_formats": [
+    "csv"
+   ],
+   "sidecars": [
+    "e_sqlite3 native libraries (in archive)"
+   ],
+   "privileges": "Standard user for offline files",
+   "network": "None",
+   "adapter": "amcacheparser",
+   "expected_signers": [
+    "ZimTech LLC"
+   ],
+   "license": {
+    "source": "Not reviewed: per-repository license pages were unreachable from the build host (2026-10-28)",
+    "redistribution": "unknown - the workbench never bundles or re-publishes this binary"
+   },
+   "gui_open_argument": null,
+   "notes": ".NET 10 only. Amcache entries show presence/inventory, not proof of execution."
+  },
+  {
+   "id": "appcompatcacheparser",
+   "name": "AppCompatCacheParser",
+   "kind": "cli",
+   "integration": "cli_adapter",
+   "category": "Program presence & execution",
+   "description": "AppCompatCache aka ShimCache parser. Handles locked files",
+   "homepage": "https://ericzimmerman.github.io/",
+   "repository": "https://github.com/EricZimmerman/AppCompatCacheParser",
+   "repository_status": "unconfirmed: GitHub unreachable from build host on 2026-10-28",
+   "documentation": "https://github.com/EricZimmerman/AppCompatCacheParser#readme",
+   "downloads": {
+    "net10": {
+     "url": "https://download.ericzimmermanstools.com/net/AppCompatCacheParser.zip",
+     "catalogue_version": "2026.10.1"
+    },
+    "net4": {
+     "url": "https://download.ericzimmermanstools.com/AppCompatCacheParser.zip",
+     "catalogue_version": "2026.10.1"
+    }
+   },
+   "executable": "AppCompatCacheParser.exe",
+   "archive_subdir": null,
+   "managed_assembly": "AppCompatCacheParser.dll",
+   "input_types": [
+    "system_hive"
+   ],
+   "output_formats": [
+    "csv"
+   ],
+   "sidecars": [],
+   "privileges": "Standard user for offline hives; live Registry (no -f) needs administrator and is not offered",
+   "network": "None",
+   "adapter": "appcompatcacheparser",
+   "expected_signers": [
+    "ZimTech LLC"
+   ],
+   "license": {
+    "source": "Not reviewed: per-repository license pages were unreachable from the build host (2026-10-28)",
+    "redistribution": "unknown - the workbench never bundles or re-publishes this binary"
+   },
+   "gui_open_argument": null,
+   "notes": "Without -f the tool reads the live Registry; the workbench always passes an evidence hive."
+  },
+  {
+   "id": "bstrings",
+   "name": "bstrings",
+   "kind": "cli",
+   "integration": "cli_adapter",
+   "category": "Strings & search",
+   "description": "Find them strings yo. Built in regex patterns. Handles locked files",
+   "homepage": "https://ericzimmerman.github.io/",
+   "repository": "https://github.com/EricZimmerman/bstrings",
+   "repository_status": "unconfirmed: GitHub unreachable from build host on 2026-10-28",
+   "documentation": "https://github.com/EricZimmerman/bstrings#readme",
+   "downloads": {
+    "net10": {
+     "url": "https://download.ericzimmermanstools.com/net/bstrings.zip",
+     "catalogue_version": "2026.10.1"
+    },
+    "net4": {
+     "url": "https://download.ericzimmermanstools.com/bstrings.zip",
+     "catalogue_version": "2026.10.1"
+    }
+   },
+   "executable": "bstrings.exe",
+   "archive_subdir": null,
+   "managed_assembly": "bstrings.dll",
+   "input_types": [
+    "any_file",
+    "any_directory"
+   ],
+   "output_formats": [
+    "text"
+   ],
+   "sidecars": [],
+   "privileges": "Standard user for offline files",
+   "network": "None",
+   "adapter": "bstrings",
+   "expected_signers": [
+    "ZimTech LLC"
+   ],
+   "license": {
+    "source": "Not reviewed: per-repository license pages were unreachable from the build host (2026-10-28)",
+    "redistribution": "unknown - the workbench never bundles or re-publishes this binary"
+   },
+   "gui_open_argument": null,
+   "notes": "Produces text, not a table; results open in the bounded text viewer."
+  },
+  {
+   "id": "evtxecmd",
+   "name": "EvtxECmd",
+   "kind": "cli",
+   "integration": "cli_adapter",
+   "category": "Event logs",
+   "description": "Event log (evtx) parser with standardized CSV, XML, and json output! Custom maps, locked file support, and more!",
+   "homepage": "https://ericzimmerman.github.io/",
+   "repository": "https://github.com/EricZimmerman/evtx",
+   "repository_status": "unconfirmed: GitHub unreachable from build host on 2026-10-28",
+   "documentation": "https://github.com/EricZimmerman/evtx#readme",
+   "downloads": {
+    "net10": {
+     "url": "https://download.ericzimmermanstools.com/net/EvtxECmd.zip",
+     "catalogue_version": "2026.10.2"
+    },
+    "net4": {
+     "url": "https://download.ericzimmermanstools.com/EvtxECmd.zip",
+     "catalogue_version": "2026.10.2"
+    }
+   },
+   "executable": "EvtxECmd.exe",
+   "archive_subdir": "EvtxeCmd",
+   "managed_assembly": "EvtxECmd.dll",
+   "input_types": [
+    "evtx_file",
+    "evtx_directory"
+   ],
+   "output_formats": [
+    "csv",
+    "json",
+    "xml"
+   ],
+   "sidecars": [
+    "Maps (475 files in 2026.10.2 archive)"
+   ],
+   "privileges": "Standard user for offline logs; --vss needs administrator",
+   "network": "Only with --sync (map update from GitHub); the workbench never passes --sync",
+   "adapter": "evtxecmd",
+   "expected_signers": [
+    "ZimTech LLC"
+   ],
+   "license": {
+    "source": "Not reviewed: per-repository license pages were unreachable from the build host (2026-10-28)",
+    "redistribution": "unknown - the workbench never bundles or re-publishes this binary"
+   },
+   "gui_open_argument": null,
+   "notes": ""
+  },
+  {
+   "id": "jlecmd",
+   "name": "JLECmd",
+   "kind": "cli",
+   "integration": "cli_adapter",
+   "category": "User activity",
+   "description": "Jump List parser",
+   "homepage": "https://ericzimmerman.github.io/",
+   "repository": "https://github.com/EricZimmerman/JLECmd",
+   "repository_status": "unconfirmed: GitHub unreachable from build host on 2026-10-28",
+   "documentation": "https://github.com/EricZimmerman/JLECmd#readme",
+   "downloads": {
+    "net10": {
+     "url": "https://download.ericzimmermanstools.com/net/JLECmd.zip",
+     "catalogue_version": "2026.10.5"
+    },
+    "net4": {
+     "url": "https://download.ericzimmermanstools.com/JLECmd.zip",
+     "catalogue_version": "2026.10.5"
+    }
+   },
+   "executable": "JLECmd.exe",
+   "archive_subdir": null,
+   "managed_assembly": "JLECmd.dll",
+   "input_types": [
+    "jumplist_file",
+    "jumplist_directory"
+   ],
+   "output_formats": [
+    "csv",
+    "json",
+    "html"
+   ],
+   "sidecars": [],
+   "privileges": "Standard user for offline files",
+   "network": "None",
+   "adapter": "jlecmd",
+   "expected_signers": [
+    "ZimTech LLC"
+   ],
+   "license": {
+    "source": "Not reviewed: per-repository license pages were unreachable from the build host (2026-10-28)",
+    "redistribution": "unknown - the workbench never bundles or re-publishes this binary"
+   },
+   "gui_open_argument": null,
+   "notes": ""
+  },
+  {
+   "id": "lecmd",
+   "name": "LECmd",
+   "kind": "cli",
+   "integration": "cli_adapter",
+   "category": "User activity",
+   "description": "Parse lnk files",
+   "homepage": "https://ericzimmerman.github.io/",
+   "repository": "https://github.com/EricZimmerman/LECmd",
+   "repository_status": "unconfirmed: GitHub unreachable from build host on 2026-10-28",
+   "documentation": "https://github.com/EricZimmerman/LECmd#readme",
+   "downloads": {
+    "net10": {
+     "url": "https://download.ericzimmermanstools.com/net/LECmd.zip",
+     "catalogue_version": "2026.10.3"
+    },
+    "net4": {
+     "url": "https://download.ericzimmermanstools.com/LECmd.zip",
+     "catalogue_version": "2026.10.3"
+    }
+   },
+   "executable": "LECmd.exe",
+   "archive_subdir": null,
+   "managed_assembly": "LECmd.dll",
+   "input_types": [
+    "lnk_file",
+    "lnk_directory"
+   ],
+   "output_formats": [
+    "csv",
+    "json",
+    "xml",
+    "html"
+   ],
+   "sidecars": [],
+   "privileges": "Standard user for offline files",
+   "network": "None",
+   "adapter": "lecmd",
+   "expected_signers": [
+    "ZimTech LLC"
+   ],
+   "license": {
+    "source": "Not reviewed: per-repository license pages were unreachable from the build host (2026-10-28)",
+    "redistribution": "unknown - the workbench never bundles or re-publishes this binary"
+   },
+   "gui_open_argument": null,
+   "notes": ""
+  },
+  {
+   "id": "mftecmd",
+   "name": "MFTECmd",
+   "kind": "cli",
+   "integration": "cli_adapter",
+   "category": "File system",
+   "description": "$MFT, $Boot, $J, $SDS, $I30, and $LogFile parser. Handles locked files",
+   "homepage": "https://ericzimmerman.github.io/",
+   "repository": "https://github.com/EricZimmerman/MFTECmd",
+   "repository_status": "named in project specification",
+   "documentation": "https://github.com/EricZimmerman/MFTECmd#readme",
+   "downloads": {
+    "net10": {
+     "url": "https://download.ericzimmermanstools.com/net/MFTECmd.zip",
+     "catalogue_version": "2026.10.6"
+    },
+    "net4": {
+     "url": "https://download.ericzimmermanstools.com/MFTECmd.zip",
+     "catalogue_version": "2026.10.6"
+    }
+   },
+   "executable": "MFTECmd.exe",
+   "archive_subdir": null,
+   "managed_assembly": "MFTECmd.dll",
+   "input_types": [
+    "ntfs_mft",
+    "ntfs_usnjrnl_j",
+    "ntfs_logfile",
+    "ntfs_boot",
+    "ntfs_sds",
+    "ntfs_i30"
+   ],
+   "output_formats": [
+    "csv",
+    "json",
+    "body"
+   ],
+   "sidecars": [],
+   "privileges": "Standard user for collected files; --vss and raw live volumes need administrator",
+   "network": "None",
+   "adapter": "mftecmd",
+   "expected_signers": [
+    "ZimTech LLC"
+   ],
+   "license": {
+    "source": "Not reviewed: per-repository license pages were unreachable from the build host (2026-10-28)",
+    "redistribution": "unknown - the workbench never bundles or re-publishes this binary"
+   },
+   "gui_open_argument": null,
+   "notes": ""
+  },
+  {
+   "id": "pecmd",
+   "name": "PECmd",
+   "kind": "cli",
+   "integration": "cli_adapter",
+   "category": "Program presence & execution",
+   "description": "Prefetch parser",
+   "homepage": "https://ericzimmerman.github.io/",
+   "repository": "https://github.com/EricZimmerman/PECmd",
+   "repository_status": "named in project specification",
+   "documentation": "https://github.com/EricZimmerman/PECmd#readme",
+   "downloads": {
+    "net10": {
+     "url": "https://download.ericzimmermanstools.com/net/PECmd.zip",
+     "catalogue_version": "2026.10.3"
+    },
+    "net4": {
+     "url": "https://download.ericzimmermanstools.com/PECmd.zip",
+     "catalogue_version": "2026.10.3"
+    }
+   },
+   "executable": "PECmd.exe",
+   "archive_subdir": null,
+   "managed_assembly": "PECmd.dll",
+   "input_types": [
+    "prefetch_file",
+    "prefetch_directory"
+   ],
+   "output_formats": [
+    "csv",
+    "json",
+    "html"
+   ],
+   "sidecars": [],
+   "privileges": "Standard user for offline files",
+   "network": "None",
+   "adapter": "pecmd",
+   "expected_signers": [
+    "ZimTech LLC"
+   ],
+   "license": {
+    "source": "Not reviewed: per-repository license pages were unreachable from the build host (2026-10-28)",
+    "redistribution": "unknown - the workbench never bundles or re-publishes this binary"
+   },
+   "gui_open_argument": null,
+   "notes": ""
+  },
+  {
+   "id": "rbcmd",
+   "name": "RBCmd",
+   "kind": "cli",
+   "integration": "cli_adapter",
+   "category": "File system",
+   "description": "Recycle Bin artifact (INFO2/$I) parser",
+   "homepage": "https://ericzimmerman.github.io/",
+   "repository": "https://github.com/EricZimmerman/RBCmd",
+   "repository_status": "unconfirmed: GitHub unreachable from build host on 2026-10-28",
+   "documentation": "https://github.com/EricZimmerman/RBCmd#readme",
+   "downloads": {
+    "net10": {
+     "url": "https://download.ericzimmermanstools.com/net/RBCmd.zip",
+     "catalogue_version": "2026.10.1"
+    },
+    "net4": {
+     "url": "https://download.ericzimmermanstools.com/RBCmd.zip",
+     "catalogue_version": "2026.10.1"
+    }
+   },
+   "executable": "RBCmd.exe",
+   "archive_subdir": null,
+   "managed_assembly": "RBCmd.dll",
+   "input_types": [
+    "recyclebin_i_file",
+    "recyclebin_info2",
+    "recyclebin_directory"
+   ],
+   "output_formats": [
+    "csv"
+   ],
+   "sidecars": [],
+   "privileges": "Standard user for offline files",
+   "network": "None",
+   "adapter": "rbcmd",
+   "expected_signers": [
+    "ZimTech LLC"
+   ],
+   "license": {
+    "source": "Not reviewed: per-repository license pages were unreachable from the build host (2026-10-28)",
+    "redistribution": "unknown - the workbench never bundles or re-publishes this binary"
+   },
+   "gui_open_argument": null,
+   "notes": ""
+  },
+  {
+   "id": "recentfilecacheparser",
+   "name": "RecentFileCacheParser",
+   "kind": "cli",
+   "integration": "cli_adapter",
+   "category": "Program presence & execution",
+   "description": "RecentFileCache parser",
+   "homepage": "https://ericzimmerman.github.io/",
+   "repository": "https://github.com/EricZimmerman/RecentFileCacheParser",
+   "repository_status": "unconfirmed: GitHub unreachable from build host on 2026-10-28",
+   "documentation": "https://github.com/EricZimmerman/RecentFileCacheParser#readme",
+   "downloads": {
+    "net10": {
+     "url": "https://download.ericzimmermanstools.com/net/RecentFileCacheParser.zip",
+     "catalogue_version": "2026.10.2"
+    },
+    "net4": {
+     "url": "https://download.ericzimmermanstools.com/RecentFileCacheParser.zip",
+     "catalogue_version": "2026.10.2"
+    }
+   },
+   "executable": "RecentFileCacheParser.exe",
+   "archive_subdir": null,
+   "managed_assembly": "RecentFileCacheParser.dll",
+   "input_types": [
+    "recentfilecache_bcf"
+   ],
+   "output_formats": [
+    "csv",
+    "json"
+   ],
+   "sidecars": [],
+   "privileges": "Standard user for offline files",
+   "network": "None",
+   "adapter": "recentfilecacheparser",
+   "expected_signers": [
+    "ZimTech LLC"
+   ],
+   "license": {
+    "source": "Not reviewed: per-repository license pages were unreachable from the build host (2026-10-28)",
+    "redistribution": "unknown - the workbench never bundles or re-publishes this binary"
+   },
+   "gui_open_argument": null,
+   "notes": "Entries record presence of paths (Windows 7 era); presence is not proof of execution."
+  },
+  {
+   "id": "recmd",
+   "name": "RECmd",
+   "kind": "cli",
+   "integration": "cli_adapter",
+   "category": "Registry",
+   "description": "Powerful command line Registry tool searching, multi-hive support, plugins, and more",
+   "homepage": "https://ericzimmerman.github.io/",
+   "repository": "https://github.com/EricZimmerman/RECmd",
+   "repository_status": "named in project specification",
+   "documentation": "https://github.com/EricZimmerman/RECmd#readme",
+   "downloads": {
+    "net10": {
+     "url": "https://download.ericzimmermanstools.com/net/RECmd.zip",
+     "catalogue_version": "2026.10.2"
+    },
+    "net4": {
+     "url": "https://download.ericzimmermanstools.com/RECmd.zip",
+     "catalogue_version": "2026.10.2"
+    }
+   },
+   "executable": "RECmd.exe",
+   "archive_subdir": "RECmd",
+   "managed_assembly": "RECmd.dll",
+   "input_types": [
+    "registry_hive",
+    "registry_hive_directory"
+   ],
+   "output_formats": [
+    "csv",
+    "json"
+   ],
+   "sidecars": [
+    "BatchExamples (25 files in 2026.10.2 archive)",
+    "Plugins (70 files)"
+   ],
+   "privileges": "Standard user for offline files",
+   "network": "Only with --sync (batch update from GitHub); the workbench never passes --sync",
+   "adapter": "recmd",
+   "expected_signers": [
+    "ZimTech LLC"
+   ],
+   "license": {
+    "source": "Not reviewed: per-repository license pages were unreachable from the build host (2026-10-28)",
+    "redistribution": "unknown - the workbench never bundles or re-publishes this binary"
+   },
+   "gui_open_argument": null,
+   "notes": ""
+  },
+  {
+   "id": "rla",
+   "name": "RLA",
+   "kind": "cli",
+   "integration": "cli_adapter",
+   "category": "Registry",
+   "description": "Replay transaction logs and update Registry hives so they are no longer dirty. Useful when tools do not know how to handle transaction logs",
+   "homepage": "https://ericzimmerman.github.io/",
+   "repository": "https://github.com/EricZimmerman/RECmd",
+   "repository_status": "named in project specification",
+   "documentation": "https://github.com/EricZimmerman/RECmd#readme",
+   "downloads": {
+    "net10": {
+     "url": "https://download.ericzimmermanstools.com/net/rla.zip",
+     "catalogue_version": "2026.10.1"
+    },
+    "net4": {
+     "url": "https://download.ericzimmermanstools.com/rla.zip",
+     "catalogue_version": "2026.10.1"
+    }
+   },
+   "executable": "rla.exe",
+   "archive_subdir": null,
+   "managed_assembly": "rla.dll",
+   "input_types": [
+    "registry_hive",
+    "registry_hive_directory"
+   ],
+   "output_formats": [
+    "hive"
+   ],
+   "sidecars": [],
+   "privileges": "Standard user for offline files",
+   "network": "None",
+   "adapter": "rla",
+   "expected_signers": [
+    "ZimTech LLC"
+   ],
+   "license": {
+    "source": "Not reviewed: per-repository license pages were unreachable from the build host (2026-10-28)",
+    "redistribution": "unknown - the workbench never bundles or re-publishes this binary"
+   },
+   "gui_open_argument": null,
+   "notes": "Writes replayed hives only into the job's derived-output directory; originals and logs are never written."
+  },
+  {
+   "id": "sbecmd",
+   "name": "SBECmd",
+   "kind": "cli",
+   "integration": "cli_adapter",
+   "category": "User activity",
+   "description": "ShellBags Explorer, command line edition, for exporting shellbag data",
+   "homepage": "https://ericzimmerman.github.io/",
+   "repository": null,
+   "repository_status": "no public repository listed (closed-source GUI)",
+   "documentation": "https://ericzimmerman.github.io/documentation/",
+   "downloads": {
+    "net10": {
+     "url": "https://download.ericzimmermanstools.com/net/SBECmd.zip",
+     "catalogue_version": "2026.10.2"
+    },
+    "net4": {
+     "url": "https://download.ericzimmermanstools.com/SBECmd.zip",
+     "catalogue_version": "2026.10.2"
+    }
+   },
+   "executable": "SBECmd.exe",
+   "archive_subdir": null,
+   "managed_assembly": "SBECmd.dll",
+   "input_types": [
+    "registry_hive_directory"
+   ],
+   "output_formats": [
+    "csv",
+    "json"
+   ],
+   "sidecars": [],
+   "privileges": "Standard user for -d; live Registry (-l) needs administrator and is not offered",
+   "network": "None",
+   "adapter": "sbecmd",
+   "expected_signers": [
+    "ZimTech LLC"
+   ],
+   "license": {
+    "source": "Not reviewed: per-repository license pages were unreachable from the build host (2026-10-28)",
+    "redistribution": "unknown - the workbench never bundles or re-publishes this binary"
+   },
+   "gui_open_argument": null,
+   "notes": ""
+  },
+  {
+   "id": "sqlecmd",
+   "name": "SQLECmd",
+   "kind": "cli",
+   "integration": "cli_adapter",
+   "category": "Application data",
+   "description": "Find and process SQLite files according to your needs with maps!",
+   "homepage": "https://ericzimmerman.github.io/",
+   "repository": "https://github.com/EricZimmerman/SQLECmd",
+   "repository_status": "unconfirmed: GitHub unreachable from build host on 2026-10-28",
+   "documentation": "https://github.com/EricZimmerman/SQLECmd#readme",
+   "downloads": {
+    "net10": {
+     "url": "https://download.ericzimmermanstools.com/net/SQLECmd.zip",
+     "catalogue_version": "2026.10.3"
+    }
+   },
+   "executable": "SQLECmd.exe",
+   "archive_subdir": "SQLECmd",
+   "managed_assembly": "SQLECmd.dll",
+   "input_types": [
+    "sqlite_db",
+    "sqlite_directory"
+   ],
+   "output_formats": [
+    "csv",
+    "json"
+   ],
+   "sidecars": [
+    "Maps (95 files in 2026.10.3 archive)",
+    "runtimes (native SQLite)"
+   ],
+   "privileges": "Standard user for offline files",
+   "network": "Only with --sync; the workbench never passes --sync",
+   "adapter": "sqlecmd",
+   "expected_signers": [
+    "ZimTech LLC"
+   ],
+   "license": {
+    "source": "Not reviewed: per-repository license pages were unreachable from the build host (2026-10-28)",
+    "redistribution": "unknown - the workbench never bundles or re-publishes this binary"
+   },
+   "gui_open_argument": null,
+   "notes": ".NET 10 only. Opens temporary copies (see --temp), not the evidence itself."
+  },
+  {
+   "id": "srumecmd",
+   "name": "SrumECmd",
+   "kind": "cli",
+   "integration": "cli_adapter",
+   "category": "Application data",
+   "description": "Process SRUDB.dat and (optionally) SOFTWARE hive for network, process, and energy info!",
+   "homepage": "https://ericzimmerman.github.io/",
+   "repository": "https://github.com/EricZimmerman/Srum",
+   "repository_status": "unconfirmed: GitHub unreachable from build host on 2026-10-28",
+   "documentation": "https://github.com/EricZimmerman/Srum#readme",
+   "downloads": {
+    "net10": {
+     "url": "https://download.ericzimmermanstools.com/net/SrumECmd.zip",
+     "catalogue_version": "2026.10.1"
+    },
+    "net4": {
+     "url": "https://download.ericzimmermanstools.com/SrumECmd.zip",
+     "catalogue_version": "2026.10.1"
+    }
+   },
+   "executable": "SrumECmd.exe",
+   "archive_subdir": null,
+   "managed_assembly": "SrumECmd.dll",
+   "input_types": [
+    "srum_db",
+    "software_hive"
+   ],
+   "output_formats": [
+    "csv"
+   ],
+   "sidecars": [],
+   "privileges": "Standard user for offline files",
+   "network": "None",
+   "adapter": "srumecmd",
+   "expected_signers": [
+    "ZimTech LLC"
+   ],
+   "license": {
+    "source": "Not reviewed: per-repository license pages were unreachable from the build host (2026-10-28)",
+    "redistribution": "unknown - the workbench never bundles or re-publishes this binary"
+   },
+   "gui_open_argument": null,
+   "notes": ""
+  },
+  {
+   "id": "sumecmd",
+   "name": "SumECmd",
+   "kind": "cli",
+   "integration": "cli_adapter",
+   "category": "Application data",
+   "description": "Process Microsoft User Access Logs found under 'C:\\Windows\\System32\\LogFiles\\SUM'",
+   "homepage": "https://ericzimmerman.github.io/",
+   "repository": "https://github.com/EricZimmerman/Sum",
+   "repository_status": "unconfirmed: GitHub unreachable from build host on 2026-10-28",
+   "documentation": "https://github.com/EricZimmerman/Sum#readme",
+   "downloads": {
+    "net10": {
+     "url": "https://download.ericzimmermanstools.com/net/SumECmd.zip",
+     "catalogue_version": "2026.10.1"
+    },
+    "net4": {
+     "url": "https://download.ericzimmermanstools.com/SumECmd.zip",
+     "catalogue_version": "2026.10.1"
+    }
+   },
+   "executable": "SumECmd.exe",
+   "archive_subdir": null,
+   "managed_assembly": "SumECmd.dll",
+   "input_types": [
+    "sum_directory"
+   ],
+   "output_formats": [
+    "csv"
+   ],
+   "sidecars": [],
+   "privileges": "Standard user for offline files",
+   "network": "None",
+   "adapter": "sumecmd",
+   "expected_signers": [
+    "ZimTech LLC"
+   ],
+   "license": {
+    "source": "Not reviewed: per-repository license pages were unreachable from the build host (2026-10-28)",
+    "redistribution": "unknown - the workbench never bundles or re-publishes this binary"
+   },
+   "gui_open_argument": null,
+   "notes": ""
+  },
+  {
+   "id": "vscmount",
+   "name": "VSCMount",
+   "kind": "cli",
+   "integration": "specialist",
+   "category": "Specialist utilities",
+   "description": "Mount all VSCs on a drive letter to a given mount point",
+   "homepage": "https://ericzimmerman.github.io/",
+   "repository": "https://github.com/EricZimmerman/VSCMount",
+   "repository_status": "unconfirmed: GitHub unreachable from build host on 2026-10-28",
+   "documentation": "https://github.com/EricZimmerman/VSCMount#readme",
+   "downloads": {
+    "net10": {
+     "url": "https://download.ericzimmermanstools.com/net/VSCMount.zip",
+     "catalogue_version": "2026.10.0"
+    }
+   },
+   "executable": "VSCMount.exe",
+   "archive_subdir": null,
+   "managed_assembly": "VSCMount.dll",
+   "input_types": [
+    "live_volume"
+   ],
+   "output_formats": [
+    "mount_points"
+   ],
+   "sidecars": [],
+   "privileges": "Administrator required (creates symbolic links to shadow copies)",
+   "network": "None",
+   "adapter": "vscmount",
+   "expected_signers": [
+    "ZimTech LLC"
+   ],
+   "license": {
+    "source": "Not reviewed: per-repository license pages were unreachable from the build host (2026-10-28)",
+    "redistribution": "unknown - the workbench never bundles or re-publishes this binary"
+   },
+   "gui_open_argument": null,
+   "notes": ".NET 10 only. Specialist live operation; never an automatic triage step."
+  },
+  {
+   "id": "wxtcmd",
+   "name": "WxTCmd",
+   "kind": "cli",
+   "integration": "cli_adapter",
+   "category": "User activity",
+   "description": "Windows 10/11 Timeline database parser",
+   "homepage": "https://ericzimmerman.github.io/",
+   "repository": "https://github.com/EricZimmerman/WxTCmd",
+   "repository_status": "unconfirmed: GitHub unreachable from build host on 2026-10-28",
+   "documentation": "https://github.com/EricZimmerman/WxTCmd#readme",
+   "downloads": {
+    "net10": {
+     "url": "https://download.ericzimmermanstools.com/net/WxTCmd.zip",
+     "catalogue_version": "2026.10.1"
+    }
+   },
+   "executable": "WxTCmd.exe",
+   "archive_subdir": null,
+   "managed_assembly": "WxTCmd.dll",
+   "input_types": [
+    "activitiescache_db"
+   ],
+   "output_formats": [
+    "csv"
+   ],
+   "sidecars": [
+    "e_sqlite3 native libraries (in archive)"
+   ],
+   "privileges": "Standard user for offline files",
+   "network": "None",
+   "adapter": "wxtcmd",
+   "expected_signers": [
+    "ZimTech LLC"
+   ],
+   "license": {
+    "source": "Not reviewed: per-repository license pages were unreachable from the build host (2026-10-28)",
+    "redistribution": "unknown - the workbench never bundles or re-publishes this binary"
+   },
+   "gui_open_argument": null,
+   "notes": ".NET 10 only."
+  },
+  {
+   "id": "ezviewer",
+   "name": "EZViewer",
+   "kind": "gui",
+   "integration": "gui_launch",
+   "category": "Viewers",
+   "description": "Standalone, zero dependency viewer for .doc, .docx, .xls, .xlsx, .txt, .log, .rtf, .otd, .htm, .html, .mht, .csv, and .pdf. Any non-supported files are shown in a hex editor (with data interpreter!)",
+   "homepage": "https://ericzimmerman.github.io/",
+   "repository": null,
+   "repository_status": "no public repository listed (closed-source GUI)",
+   "documentation": "https://ericzimmerman.github.io/documentation/",
+   "downloads": {
+    "net10": {
+     "url": "https://download.ericzimmermanstools.com/net/EZViewer.zip",
+     "catalogue_version": "2026.10.0"
+    }
+   },
+   "executable": "EZViewer.exe",
+   "archive_subdir": "EZViewer",
+   "managed_assembly": null,
+   "input_types": [
+    "any_file"
+   ],
+   "output_formats": [],
+   "sidecars": [],
+   "privileges": "Standard user; locked/live files need administrator",
+   "network": "None",
+   "adapter": null,
+   "expected_signers": [
+    "ZimTech LLC"
+   ],
+   "license": {
+    "source": "Not reviewed: per-repository license pages were unreachable from the build host (2026-10-28)",
+    "redistribution": "unknown - the workbench never bundles or re-publishes this binary"
+   },
+   "gui_open_argument": null,
+   "notes": "GUI tools are .NET 10 only and need the .NET 10 Desktop Runtime. No file-opening argument has been verified; the workbench launches the tool and offers copy-path / open-folder."
+  },
+  {
+   "id": "hasher",
+   "name": "Hasher",
+   "kind": "gui",
+   "integration": "gui_launch",
+   "category": "Utilities",
+   "description": "Hash all the things",
+   "homepage": "https://ericzimmerman.github.io/",
+   "repository": null,
+   "repository_status": "no public repository listed (closed-source GUI)",
+   "documentation": "https://ericzimmerman.github.io/documentation/",
+   "downloads": {
+    "net10": {
+     "url": "https://download.ericzimmermanstools.com/net/hasher.zip",
+     "catalogue_version": "2026.10.0"
+    }
+   },
+   "executable": "Hasher.exe",
+   "archive_subdir": "Hasher",
+   "managed_assembly": null,
+   "input_types": [
+    "any_file"
+   ],
+   "output_formats": [],
+   "sidecars": [],
+   "privileges": "Standard user; locked/live files need administrator",
+   "network": "None",
+   "adapter": null,
+   "expected_signers": [
+    "ZimTech LLC"
+   ],
+   "license": {
+    "source": "Not reviewed: per-repository license pages were unreachable from the build host (2026-10-28)",
+    "redistribution": "unknown - the workbench never bundles or re-publishes this binary"
+   },
+   "gui_open_argument": null,
+   "notes": "GUI tools are .NET 10 only and need the .NET 10 Desktop Runtime. No file-opening argument has been verified; the workbench launches the tool and offers copy-path / open-folder."
+  },
+  {
+   "id": "jumplistexplorer",
+   "name": "JumpList Explorer",
+   "kind": "gui",
+   "integration": "gui_launch",
+   "category": "Viewers",
+   "description": "GUI based Jump List viewer",
+   "homepage": "https://ericzimmerman.github.io/",
+   "repository": null,
+   "repository_status": "no public repository listed (closed-source GUI)",
+   "documentation": "https://ericzimmerman.github.io/documentation/",
+   "downloads": {
+    "net10": {
+     "url": "https://download.ericzimmermanstools.com/net/JumpListExplorer.zip",
+     "catalogue_version": "2026.10.1"
+    }
+   },
+   "executable": "JumpListExplorer.exe",
+   "archive_subdir": "JumpListExplorer",
+   "managed_assembly": null,
+   "input_types": [
+    "jumplist_file"
+   ],
+   "output_formats": [],
+   "sidecars": [],
+   "privileges": "Standard user; locked/live files need administrator",
+   "network": "None",
+   "adapter": null,
+   "expected_signers": [
+    "ZimTech LLC"
+   ],
+   "license": {
+    "source": "Not reviewed: per-repository license pages were unreachable from the build host (2026-10-28)",
+    "redistribution": "unknown - the workbench never bundles or re-publishes this binary"
+   },
+   "gui_open_argument": null,
+   "notes": "GUI tools are .NET 10 only and need the .NET 10 Desktop Runtime. No file-opening argument has been verified; the workbench launches the tool and offers copy-path / open-folder."
+  },
+  {
+   "id": "mftexplorer",
+   "name": "MFTExplorer",
+   "kind": "gui",
+   "integration": "gui_launch",
+   "category": "Viewers",
+   "description": "Graphical $MFT viewer",
+   "homepage": "https://ericzimmerman.github.io/",
+   "repository": null,
+   "repository_status": "no public repository listed (closed-source GUI)",
+   "documentation": "https://ericzimmerman.github.io/documentation/",
+   "downloads": {
+    "net10": {
+     "url": "https://download.ericzimmermanstools.com/net/MFTExplorer.zip",
+     "catalogue_version": "2026.10.0"
+    }
+   },
+   "executable": "MFTExplorer.exe",
+   "archive_subdir": "MFTExplorer",
+   "managed_assembly": null,
+   "input_types": [
+    "ntfs_mft"
+   ],
+   "output_formats": [],
+   "sidecars": [],
+   "privileges": "Standard user; locked/live files need administrator",
+   "network": "None",
+   "adapter": null,
+   "expected_signers": [
+    "ZimTech LLC"
+   ],
+   "license": {
+    "source": "Not reviewed: per-repository license pages were unreachable from the build host (2026-10-28)",
+    "redistribution": "unknown - the workbench never bundles or re-publishes this binary"
+   },
+   "gui_open_argument": null,
+   "notes": "GUI tools are .NET 10 only and need the .NET 10 Desktop Runtime. No file-opening argument has been verified; the workbench launches the tool and offers copy-path / open-folder."
+  },
+  {
+   "id": "registryexplorer",
+   "name": "Registry Explorer",
+   "kind": "gui",
+   "integration": "gui_launch",
+   "category": "Viewers",
+   "description": "Registry viewer with searching, multi-hive support, plugins, and more. Handles locked files",
+   "homepage": "https://ericzimmerman.github.io/",
+   "repository": null,
+   "repository_status": "no public repository listed (closed-source GUI)",
+   "documentation": "https://ericzimmerman.github.io/documentation/",
+   "downloads": {
+    "net10": {
+     "url": "https://download.ericzimmermanstools.com/net/RegistryExplorer.zip",
+     "catalogue_version": "2026.10.1"
+    }
+   },
+   "executable": "RegistryExplorer.exe",
+   "archive_subdir": "RegistryExplorer",
+   "managed_assembly": null,
+   "input_types": [
+    "registry_hive"
+   ],
+   "output_formats": [],
+   "sidecars": [],
+   "privileges": "Standard user; locked/live files need administrator",
+   "network": "None",
+   "adapter": null,
+   "expected_signers": [
+    "ZimTech LLC"
+   ],
+   "license": {
+    "source": "Not reviewed: per-repository license pages were unreachable from the build host (2026-10-28)",
+    "redistribution": "unknown - the workbench never bundles or re-publishes this binary"
+   },
+   "gui_open_argument": null,
+   "notes": "GUI tools are .NET 10 only and need the .NET 10 Desktop Runtime. No file-opening argument has been verified; the workbench launches the tool and offers copy-path / open-folder."
+  },
+  {
+   "id": "sdbexplorer",
+   "name": "SDB Explorer",
+   "kind": "gui",
+   "integration": "gui_launch",
+   "category": "Viewers",
+   "description": "Shim database GUI",
+   "homepage": "https://ericzimmerman.github.io/",
+   "repository": null,
+   "repository_status": "no public repository listed (closed-source GUI)",
+   "documentation": "https://ericzimmerman.github.io/documentation/",
+   "downloads": {
+    "net10": {
+     "url": "https://download.ericzimmermanstools.com/net/SDBExplorer.zip",
+     "catalogue_version": "2026.10.0"
+    }
+   },
+   "executable": "SDBExplorer.exe",
+   "archive_subdir": "SDBExplorer",
+   "managed_assembly": null,
+   "input_types": [
+    "shim_sdb"
+   ],
+   "output_formats": [],
+   "sidecars": [],
+   "privileges": "Standard user; locked/live files need administrator",
+   "network": "None",
+   "adapter": null,
+   "expected_signers": [
+    "ZimTech LLC"
+   ],
+   "license": {
+    "source": "Not reviewed: per-repository license pages were unreachable from the build host (2026-10-28)",
+    "redistribution": "unknown - the workbench never bundles or re-publishes this binary"
+   },
+   "gui_open_argument": null,
+   "notes": "GUI tools are .NET 10 only and need the .NET 10 Desktop Runtime. No file-opening argument has been verified; the workbench launches the tool and offers copy-path / open-folder."
+  },
+  {
+   "id": "shellbagsexplorer",
+   "name": "ShellBags Explorer",
+   "kind": "gui",
+   "integration": "gui_launch",
+   "category": "Viewers",
+   "description": "GUI for browsing shellbags data. Handles locked files",
+   "homepage": "https://ericzimmerman.github.io/",
+   "repository": null,
+   "repository_status": "no public repository listed (closed-source GUI)",
+   "documentation": "https://ericzimmerman.github.io/documentation/",
+   "downloads": {
+    "net10": {
+     "url": "https://download.ericzimmermanstools.com/net/ShellBagsExplorer.zip",
+     "catalogue_version": "2026.10.1"
+    }
+   },
+   "executable": "ShellBagsExplorer.exe",
+   "archive_subdir": "ShellBagsExplorer",
+   "managed_assembly": null,
+   "input_types": [
+    "registry_hive"
+   ],
+   "output_formats": [],
+   "sidecars": [],
+   "privileges": "Standard user; locked/live files need administrator",
+   "network": "None",
+   "adapter": null,
+   "expected_signers": [
+    "ZimTech LLC"
+   ],
+   "license": {
+    "source": "Not reviewed: per-repository license pages were unreachable from the build host (2026-10-28)",
+    "redistribution": "unknown - the workbench never bundles or re-publishes this binary"
+   },
+   "gui_open_argument": null,
+   "notes": "GUI tools are .NET 10 only and need the .NET 10 Desktop Runtime. No file-opening argument has been verified; the workbench launches the tool and offers copy-path / open-folder."
+  },
+  {
+   "id": "timelineexplorer",
+   "name": "Timeline Explorer",
+   "kind": "gui",
+   "integration": "gui_launch",
+   "category": "Viewers",
+   "description": "View CSV and Excel files, filter, group, sort, etc. with ease",
+   "homepage": "https://ericzimmerman.github.io/",
+   "repository": null,
+   "repository_status": "no public repository listed (closed-source GUI)",
+   "documentation": "https://ericzimmerman.github.io/documentation/",
+   "downloads": {
+    "net10": {
+     "url": "https://download.ericzimmermanstools.com/net/TimelineExplorer.zip",
+     "catalogue_version": "2026.10.0"
+    }
+   },
+   "executable": "TimelineExplorer.exe",
+   "archive_subdir": "TimelineExplorer",
+   "managed_assembly": null,
+   "input_types": [
+    "csv_output"
+   ],
+   "output_formats": [],
+   "sidecars": [],
+   "privileges": "Standard user; locked/live files need administrator",
+   "network": "None",
+   "adapter": null,
+   "expected_signers": [
+    "ZimTech LLC"
+   ],
+   "license": {
+    "source": "Not reviewed: per-repository license pages were unreachable from the build host (2026-10-28)",
+    "redistribution": "unknown - the workbench never bundles or re-publishes this binary"
+   },
+   "gui_open_argument": null,
+   "notes": "GUI tools are .NET 10 only and need the .NET 10 Desktop Runtime. No file-opening argument has been verified; the workbench launches the tool and offers copy-path / open-folder."
+  },
+  {
+   "id": "get-zimmermantools",
+   "name": "Get-ZimmermanTools",
+   "kind": "script",
+   "integration": "maintenance_script",
+   "category": "Collection & maintenance",
+   "description": "PowerShell script to auto discover and update everything above.",
+   "homepage": "https://ericzimmerman.github.io/",
+   "repository": "https://github.com/EricZimmerman/Get-ZimmermanTools",
+   "repository_status": "named in project specification",
+   "documentation": "https://github.com/EricZimmerman/Get-ZimmermanTools#readme",
+   "downloads": {
+    "script": {
+     "url": "https://download.ericzimmermanstools.com/Get-ZimmermanTools.zip",
+     "catalogue_version": "NA"
+    }
+   },
+   "executable": "Get-ZimmermanTools.ps1",
+   "archive_subdir": null,
+   "managed_assembly": null,
+   "input_types": [],
+   "output_formats": [],
+   "sidecars": [],
+   "privileges": "Standard user for offline files",
+   "network": "Downloads from tools.ericzimmermanstools.com / download.ericzimmermanstools.com; self-updates unless -NoUpdate",
+   "adapter": "get-zimmermantools",
+   "expected_signers": [
+    "ZimTech LLC"
+   ],
+   "license": {
+    "source": "Not reviewed: per-repository license pages were unreachable from the build host (2026-10-28)",
+    "redistribution": "unknown - the workbench never bundles or re-publishes this binary"
+   },
+   "gui_open_argument": null,
+   "notes": "Reviewed copy 2026-10-28 (SHA-256 2cbf18d4...b4, Authenticode signature block present). Parameters: -Dest, -NetVersion {0,4,9,10}, -Proxy*, -Sync, -NoUpdate. The workbench always passes -NoUpdate and never -Sync, and never uses ExecutionPolicy Bypass."
+  },
+  {
+   "id": "iisgeolocate",
+   "name": "iisGeoLocate",
+   "kind": "cli",
+   "integration": "cli_adapter",
+   "category": "Utilities",
+   "description": "Geolocate IP addresses found in IIS logs, extracts unique IPs, records bad data from logs",
+   "homepage": "https://ericzimmerman.github.io/",
+   "repository": "https://github.com/EricZimmerman/iisGeolocate",
+   "repository_status": "unconfirmed: GitHub unreachable from build host on 2026-10-28",
+   "documentation": "https://github.com/EricZimmerman/iisGeolocate#readme",
+   "downloads": {
+    "net10": {
+     "url": "https://download.ericzimmermanstools.com/net/iisGeolocate.zip",
+     "catalogue_version": "2026.10.1"
+    },
+    "net4": {
+     "url": "https://download.ericzimmermanstools.com/iisGeolocate.zip",
+     "catalogue_version": "2026.10.1"
+    }
+   },
+   "executable": "iisGeolocate.exe",
+   "archive_subdir": "iisGeolocate",
+   "managed_assembly": "iisGeolocate.dll",
+   "input_types": [
+    "iis_log_directory"
+   ],
+   "output_formats": [
+    "csv"
+   ],
+   "sidecars": [
+    "MaxMind GeoIP2/GeoLite2 .mmdb database (operator supplied; not in archive)"
+   ],
+   "privileges": "Standard user for offline files",
+   "network": "Offline lookups against a local MaxMind database; obtaining that database is the operator's responsibility",
+   "adapter": "iisgeolocate",
+   "expected_signers": [
+    "ZimTech LLC"
+   ],
+   "license": {
+    "source": "Not reviewed: per-repository license pages were unreachable from the build host (2026-10-28)",
+    "redistribution": "unknown - the workbench never bundles or re-publishes this binary"
+   },
+   "gui_open_argument": null,
+   "notes": "Geolocation is optional enrichment; record the database name and date with every run."
+  },
+  {
+   "id": "kape",
+   "name": "KAPE",
+   "kind": "bundle",
+   "integration": "restricted_optional",
+   "category": "Collection & maintenance",
+   "description": "Kroll Artifact Parser/Extractor: Flexible, high speed collection of files as well as processing of files. Many many features",
+   "homepage": "https://ericzimmerman.github.io/",
+   "repository": "https://github.com/EricZimmerman/KapeFiles",
+   "repository_status": "named in project specification",
+   "documentation": "https://ericzimmerman.github.io/KapeDocs/",
+   "downloads": {},
+   "executable": "kape.exe",
+   "archive_subdir": null,
+   "managed_assembly": null,
+   "input_types": [
+    "live_volume",
+    "mounted_evidence"
+   ],
+   "output_formats": [
+    "collection_tree",
+    "module_outputs"
+   ],
+   "sidecars": [],
+   "privileges": "Collection from live volumes needs administrator",
+   "network": "None required by the workbench; the operator's KAPE configuration may differ",
+   "adapter": "kape",
+   "expected_signers": [],
+   "license": {
+    "source": "KapeDocs FAQ (fetched 2026-10-28 from https://ericzimmerman.github.io/KapeDocs/Pages/50-Frequently-asked-questions.md): free for government agencies and for educational, research and internal company use; as of January 1, 2026 not available for commercial use (third-party networks or paid engagements). The KapeFiles Targets/Modules repository license does not cover the KAPE binary.",
+    "redistribution": "restricted - not bundled, not downloaded, not exported by the workbench"
+   },
+   "gui_open_argument": null,
+   "notes": "Optional. Use your own separately obtained KAPE copy (license: Kroll). Not bundled or downloaded by the workbench. The catalogue page download link was malformed ('https://kape.zip') on 2026-10-28. KapeDocs FAQ: KAPE will never download Module binaries automatically; the operator places them in Modules\\bin or Modules\\<ModuleName>. Switches verified against KapeDocs 'Using KAPE' page: --tsource --target --tdest --tflush --tdd --msource --module --mdest --mflush --mef --vss --zip --debug --trace (and others not offered)."
+  },
+  {
+   "id": "timeapp",
+   "name": "TimeApp",
+   "kind": "gui",
+   "integration": "specialist",
+   "category": "Utilities",
+   "description": "Shows the current time (local and UTC) to the microsecond, a stopwatch, a countdown, a timestamp converter (Unix, FILETIME, WebKit, Cocoa, OLE) and optionally, public IP addresses. Great for testing",
+   "homepage": "https://ericzimmerman.github.io/",
+   "repository": null,
+   "repository_status": "no public repository listed (closed-source GUI)",
+   "documentation": "https://ericzimmerman.github.io/documentation/",
+   "downloads": {
+    "net10": {
+     "url": "https://download.ericzimmermanstools.com/net/TimeApp.zip",
+     "catalogue_version": "2026.10.0"
+    },
+    "net4": {
+     "url": "https://download.ericzimmermanstools.com/TimeApp.zip",
+     "catalogue_version": "2026.10.0"
+    }
+   },
+   "executable": "TimeApp.exe",
+   "archive_subdir": null,
+   "managed_assembly": null,
+   "input_types": [],
+   "output_formats": [],
+   "sidecars": [],
+   "privileges": "Standard user for offline files",
+   "network": "Optional public-IP lookup inside the tool; the workbench cannot block a separately launched program's networking",
+   "adapter": null,
+   "expected_signers": [
+    "ZimTech LLC"
+   ],
+   "license": {
+    "source": "Not reviewed: per-repository license pages were unreachable from the build host (2026-10-28)",
+    "redistribution": "unknown - the workbench never bundles or re-publishes this binary"
+   },
+   "gui_open_argument": null,
+   "notes": "Utility launch; opening it is not evidence processing. Also built for .NET Framework 4.8."
+  },
+  {
+   "id": "xwfim",
+   "name": "XWFIM",
+   "kind": "gui",
+   "integration": "specialist",
+   "category": "Utilities",
+   "description": "X-Ways Forensics installation manager",
+   "homepage": "https://ericzimmerman.github.io/",
+   "repository": null,
+   "repository_status": "no public repository listed (closed-source GUI)",
+   "documentation": "https://ericzimmerman.github.io/documentation/",
+   "downloads": {
+    "net10": {
+     "url": "https://download.ericzimmermanstools.com/net/XWFIM.zip",
+     "catalogue_version": "2026.10.1"
+    }
+   },
+   "executable": "XWFIM.exe",
+   "archive_subdir": "XWFIM",
+   "managed_assembly": null,
+   "input_types": [],
+   "output_formats": [],
+   "sidecars": [],
+   "privileges": "Standard user for offline files",
+   "network": "Manages X-Ways downloads inside the tool (operator credentials); the workbench never automates it",
+   "adapter": null,
+   "expected_signers": [
+    "ZimTech LLC"
+   ],
+   "license": {
+    "source": "Not reviewed: per-repository license pages were unreachable from the build host (2026-10-28)",
+    "redistribution": "unknown - the workbench never bundles or re-publishes this binary"
+   },
+   "gui_open_argument": null,
+   "notes": "Specialist installation manager for X-Ways Forensics. Launch only; it must not modify any software installation automatically."
+  }
+ ]
+}

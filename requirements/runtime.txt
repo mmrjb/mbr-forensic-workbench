@@ -1,0 +1,11 @@
+# Exact runtime pins for the Windows build (Python 3.12.x, x64).
+# Verified on the Linux dev host with the EPEL/EL10 equivalents noted in TEST_RESULTS.md.
+PySide6==6.10.1
+pydantic==2.14.1
+PyYAML==6.0.3
+pydantic-core==2.50.1
+annotated-types==0.8.0
+typing-extensions==4.16.0
+typing-inspection==0.4.4
+# Windows has no system IANA tz database; zoneinfo needs this package there.
+tzdata==2025.2 ; sys_platform == "win32"

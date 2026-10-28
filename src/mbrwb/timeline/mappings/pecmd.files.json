@@ -1,0 +1,35 @@
+{
+ "mapping_id": "pecmd.files",
+ "version": 1,
+ "tool_id": "pecmd",
+ "schema_hints": [
+  "pecmd.files"
+ ],
+ "required_columns": [
+  "SourceFilename",
+  "SourceCreated",
+  "SourceModified",
+  "ExecutableName"
+ ],
+ "timestamp_convention": "utc",
+ "convention_basis": "EZ Tools present timestamps in UTC. Evidence in the inspected 2026.10 builds: help texts such as EvtxECmd '--sd Start date for including events (UTC)', MFTECmd '--cutoff ... (UTC unless an offset is given)' and the ISO format string 'yyyy-MM-ddTHH:mm:ss.fffffffZ'. Not yet confirmed against real output on Windows; values are therefore labelled 'tool UTC convention', not 'explicit UTC'.",
+ "object_columns": [
+  "ExecutableName"
+ ],
+ "events": [
+  {
+   "field": "SourceCreated",
+   "meaning": "Prefetch file created (file system time of the .pf)",
+   "category": "File system metadata",
+   "description": "{ExecutableName} - {SourceFilename}"
+  },
+  {
+   "field": "SourceModified",
+   "meaning": "Prefetch file modified (file system time of the .pf)",
+   "category": "File system metadata",
+   "description": "{ExecutableName} - {SourceFilename}"
+  }
+ ],
+ "column_verification": "Column names confirmed as property identifiers in PECmd.dll 2026.10.3 (static); a real CSV header from this build has not been observed on the build host.",
+ "notes": ""
+}

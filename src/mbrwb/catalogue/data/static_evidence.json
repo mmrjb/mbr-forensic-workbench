@@ -1,0 +1,1641 @@
+{
+ "schema_version": 1,
+ "kind": "static_archive_evidence",
+ "generated_utc": "2026-10-28T05:56:37Z",
+ "method": "Read-only inspection of official archives (zip directory, PE headers, version resource, runtimeconfig, .NET user-string heap). Binaries were NOT executed.",
+ "source": "https://download.ericzimmermanstools.com/ (net/ = .NET 10 flavor)",
+ "records": [
+  {
+   "tool_id": "amcacheparser",
+   "flavor": "net10",
+   "archive_name": "AmcacheParser.zip",
+   "archive_sha256": "dd60cfe25f3560ee4878eb864e266303855eb660ada9a3a265bf90624b0f481a",
+   "archive_size": 5153407,
+   "entry_count": 6,
+   "top_level": [
+    "AmcacheParser.dll",
+    "AmcacheParser.exe",
+    "AmcacheParser.runtimeconfig.json",
+    "e_sqlite3.dll",
+    "libe_sqlite3.dylib",
+    "libe_sqlite3.so"
+   ],
+   "main_member": "AmcacheParser.dll",
+   "main_member_sha256": "ad32c90881e68118801ef956d68cff76c995c506eef2b32417e326e95f005c09",
+   "product_version": "2026.10.1+4706a080461d9506edbd6327bc58fc558978606d",
+   "version": "2026.10.1",
+   "machine": "x86",
+   "architecture": "anycpu",
+   "single_file_bundle": false,
+   "runtime": {
+    "flavor": "dotnet",
+    "tfm": "net10.0",
+    "frameworks": [
+     [
+      "Microsoft.NETCore.App",
+      "10.0.0"
+     ]
+    ],
+    "source": "AmcacheParser.runtimeconfig.json"
+   },
+   "certificate_common_names": [
+    "AAA Certificate Services",
+    "Sectigo Public Code Signing Root R46",
+    "Sectigo Public Code Signing CA R36",
+    "ZimTech LLC",
+    "Sectigo Public Time Stamping Signer R37",
+    "Sectigo Public Time Stamping CA R41",
+    "Sectigo Public Time Stamping Root R46",
+    "USERTrust RSA Certification Authority"
+   ],
+   "has_certificate_table": true,
+   "apphost_member": "AmcacheParser.exe",
+   "apphost_sha256": "7495550e96e8447bb7977647e416025f65de720303bafbf590d6299143d2072c",
+   "static_options": {
+    "-I": "9b",
+    "-f": "Amcache.hve to parse (Windows 7 to 11), the folder it's in (C:\\Windows\\AppCompat\\Programs), or one of the Inventory*.db SQLite databases there (Windows 11 26H1 and later). The databases next to a hive are read too",
+    "--csv": "Directory to save CSV formatted results to. Be sure to include the full path in double quotes",
+    "--csvf": "File name to save CSV formatted results to. When present, overrides default name",
+    "-i": "Include file entries for Programs entries",
+    "-w": "Path to file containing SHA-1 hashes to *exclude* from the results. Blacklisting overrides whitelisting",
+    "-b": "Path to file containing SHA-1 hashes to *include* from the results. Blacklisting overrides whitelisting",
+    "--dt": "The custom date/time format to use when displaying time stamps. See https://goo.gl/CNVq0k for options",
+    "--mp": "When true, display higher precision for timestamps",
+    "--nl": "When true, ignore transaction log files for dirty hives. Default is FALSE",
+    "--temp": "Folder for the temporary copies of the SQLite databases, which are opened instead of the evidence and deleted when done. Default: a Temp folder next to AmcacheParser. A folder that isn't there is created, and removed again when done. If that folder can't be written to, AmcacheParser stops: give a writable folder with --temp",
+    "--debug": "Show debug information during processing",
+    "--trace": "Show trace information during processing",
+    "--co": "When true, save all console messages to <timestamp>_AmcacheParser_<version>_ConsoleLog.txt in the --csv directory. Use --co false to turn it off"
+   }
+  },
+  {
+   "tool_id": "appcompatcacheparser",
+   "flavor": "net10",
+   "archive_name": "AppCompatCacheParser.zip",
+   "archive_sha256": "a6705156ad16d33163cad87674b6b4c8cefe68015db711bae153720073262ce9",
+   "archive_size": 2261762,
+   "entry_count": 3,
+   "top_level": [
+    "AppCompatCacheParser.dll",
+    "AppCompatCacheParser.exe",
+    "AppCompatCacheParser.runtimeconfig.json"
+   ],
+   "main_member": "AppCompatCacheParser.dll",
+   "main_member_sha256": "fa8d26e6374f573e0091fdc81fba20c7d2f85d3ddbf0fd33e132070b3c166f79",
+   "product_version": "2026.10.1+694c0bba98b7a2edc78f8a8fd6975bf94d37cf8c",
+   "version": "2026.10.1",
+   "machine": "x86",
+   "architecture": "anycpu",
+   "single_file_bundle": false,
+   "runtime": {
+    "flavor": "dotnet",
+    "tfm": "net10.0",
+    "frameworks": [
+     [
+      "Microsoft.NETCore.App",
+      "10.0.0"
+     ]
+    ],
+    "source": "AppCompatCacheParser.runtimeconfig.json"
+   },
+   "certificate_common_names": [
+    "AAA Certificate Services",
+    "Sectigo Public Code Signing Root R46",
+    "Sectigo Public Code Signing CA R36",
+    "ZimTech LLC",
+    "Sectigo Public Time Stamping Signer R37",
+    "Sectigo Public Time Stamping CA R41",
+    "Sectigo Public Time Stamping Root R46",
+    "USERTrust RSA Certification Authority"
+   ],
+   "has_certificate_table": true,
+   "apphost_member": "AppCompatCacheParser.exe",
+   "apphost_sha256": "fe43eb566e56cd9e56d7bd52f025304c31f342cdcd10757f576afa2af48ddc75",
+   "static_options": {
+    "-f": "Full path to SYSTEM hive to process. If this option is not specified, the live Registry will be used",
+    "--csv": "Directory to save CSV formatted results to. Be sure to include the full path in double quotes",
+    "--csvf": "File name to save CSV formatted results to. When present, overrides default name",
+    "-c": "The ControlSet to parse. Default is to extract all control sets",
+    "-t": "Sorts last modified timestamps in descending order",
+    "--dt": "The custom date/time format to use when displaying time stamps. See https://goo.gl/CNVq0k for options",
+    "--nl": "When true, ignore transaction log files for dirty hives",
+    "--debug": "Show debug information during processing",
+    "--trace": "Show trace information during processing",
+    "--co": "When true, save all console messages to <timestamp>_AppCompatCacheParser_<version>_ConsoleLog.txt in the --csv directory. Use --co false to turn it off"
+   }
+  },
+  {
+   "tool_id": "bstrings",
+   "flavor": "net10",
+   "archive_name": "bstrings.zip",
+   "archive_sha256": "001ef4030a223e74a6927459084079050f978baa1a97199c288047b93d225c77",
+   "archive_size": 1528684,
+   "entry_count": 3,
+   "top_level": [
+    "bstrings.dll",
+    "bstrings.exe",
+    "bstrings.runtimeconfig.json"
+   ],
+   "main_member": "bstrings.dll",
+   "main_member_sha256": "e02788b7f7e8cb907b05374ff6f045f23b0a3f2eb9ec1dd835095c936a78f1b6",
+   "product_version": "2026.10.1+ea48d9f1605c0fbbf8f63b24e1aef668d325f57a",
+   "version": "2026.10.1",
+   "machine": "x86",
+   "architecture": "anycpu",
+   "single_file_bundle": false,
+   "runtime": {
+    "flavor": "dotnet",
+    "tfm": "net10.0",
+    "frameworks": [
+     [
+      "Microsoft.NETCore.App",
+      "10.0.0"
+     ]
+    ],
+    "source": "bstrings.runtimeconfig.json"
+   },
+   "certificate_common_names": [
+    "AAA Certificate Services",
+    "Sectigo Public Code Signing Root R46",
+    "Sectigo Public Code Signing CA R36",
+    "ZimTech LLC",
+    "Sectigo Public Time Stamping Signer R37",
+    "Sectigo Public Time Stamping CA R41",
+    "Sectigo Public Time Stamping Root R46",
+    "USERTrust RSA Certification Authority"
+   ],
+   "has_certificate_table": true,
+   "apphost_member": "bstrings.exe",
+   "apphost_sha256": "e96f49c7f28c589505f45b7623d722965c3b2a85e0aa0f965948ac5264909b9a",
+   "static_options": {
+    "-f": "File to search. Either this or -d is required. When neither is given, input piped to stdin is searched",
+    "-d": "Directory to recursively process. Either this or -f is required",
+    "-o": "File to save results to. Results are appended if the file exists",
+    "-a": "If set, look for ASCII strings. Use -a false to disable",
+    "-u": "If set, look for Unicode strings. Use -u false to disable",
+    "-m": "Minimum string length",
+    "-b": "Chunk size in MB. Valid range is 1 to 1024",
+    "-q": "Quiet mode (Do not show header or total number of hits)",
+    "-s": "Really Quiet mode (Do not display hits to console. Speeds up processing when using -o)",
+    "-x": "Maximum string length. Default is unlimited",
+    "-p": "Display list of built in regular expressions",
+    "--ls": "String to look for. When set, only matching strings are returned",
+    "--lr": "Regex to look for. When set, only strings matching the regex are returned",
+    "--fs": "File containing strings to look for. When set, only matching strings are returned",
+    "--fr": "File containing regex patterns to look for. When set, only strings matching regex patterns are returned",
+    "--ar": "Range of characters to search for in 'Code page' strings. Specify as a range of characters in hex format and enclose in quotes. Default is [\\x20 -\\x7E]",
+    "--ur": "Range of characters to search for in Unicode strings. Specify as a range of characters in hex format and enclose in quotes. Default is [\\\\u0020-\\\\u007E]",
+    "--cp": "Code page to use. Default is 1252. Use the Identifier value for code pages at https://goo.gl/ig6DxW",
+    "--mask": "When using -d, file mask to search for. * and ? are supported. This option has no effect when using -f",
+    "--ms": "When using -d, maximum file size in bytes to process. This option has no effect when using -f",
+    "--ro": "When true, list the string matched by regex pattern vs string the pattern was found in (This may result in duplicate strings in output. ~ denotes approx. offset)",
+    "--off": "Show offset to hit after string, followed by the encoding (A=Code page, U=Unicode)",
+    "--sa": "Sort results alphabetically",
+    "--sl": "Sort results by length",
+    "--debug": "Show debug information during processing",
+    "--trace": "Show trace information during processing",
+    "--co": "When true, save all console messages to <timestamp>_bstrings_<version>_ConsoleLog.txt in the folder of the -o file. Use --co false to turn it off"
+   }
+  },
+  {
+   "tool_id": "evtxecmd",
+   "flavor": "net10",
+   "archive_name": "EvtxECmd.zip",
+   "archive_sha256": "efd5b3df9a526fad7e2f2a628911f6db80553e3e0468caef8f9e9a49926cb5d0",
+   "archive_size": 3396511,
+   "entry_count": 478,
+   "top_level": [
+    "EvtxeCmd"
+   ],
+   "main_member": "EvtxeCmd/EvtxECmd.dll",
+   "main_member_sha256": "abd3e3f4f1eccfca5fb94e23b1643c9e0b4be16c704c7dfcee2dd2738e2d6940",
+   "product_version": "2026.10.2+fbf2f66736669689bfb95f735f7eca86d29d9800",
+   "version": "2026.10.2",
+   "machine": "x86",
+   "architecture": "anycpu",
+   "single_file_bundle": false,
+   "runtime": {
+    "flavor": "dotnet",
+    "tfm": "net10.0",
+    "frameworks": [
+     [
+      "Microsoft.NETCore.App",
+      "10.0.0"
+     ]
+    ],
+    "source": "EvtxECmd.runtimeconfig.json"
+   },
+   "certificate_common_names": [
+    "AAA Certificate Services",
+    "Sectigo Public Code Signing Root R46",
+    "Sectigo Public Code Signing CA R36",
+    "ZimTech LLC",
+    "Sectigo Public Time Stamping Signer R37",
+    "Sectigo Public Time Stamping CA R41",
+    "Sectigo Public Time Stamping Root R46",
+    "USERTrust RSA Certification Authority"
+   ],
+   "has_certificate_table": true,
+   "apphost_member": "EvtxeCmd/EvtxECmd.exe",
+   "apphost_sha256": "085104fab06fd5509448c9d7f6c0145be14d08e5d6a30c9b3e6b11c5acadf8d1",
+   "static_options": {
+    "--vss": "{Vss} is present, but administrator rights not found. Exiting",
+    "-f": "File to process. Either this or -d is required",
+    "-d": "Directory to recursively process. Either this or -f is required",
+    "--csv": "Directory to save CSV formatted results to. Be sure to include the full path in double quotes",
+    "--csvf": "File name to save CSV formatted results to. When present, overrides default name",
+    "--json": "Directory to save JSON formatted results to. Be sure to include the full path in double quotes",
+    "--jsonf": "File name to save JSON formatted results to. When present, overrides default name",
+    "--xml": "Directory to save XML formatted results to",
+    "--xmlf": "File name to save XML formatted results to. When present, overrides default name",
+    "--dt": "The custom date/time format to use when displaying time stamps. See https://goo.gl/CNVq0k for options",
+    "--inc": "List of Event IDs to process. All others are ignored. Overrides --exc Format is 4624,4625,5410,5500-5600",
+    "--exc": "List of Event IDs to IGNORE. All others are included. Format is 4624,4625,5410,5500-5600",
+    "--sd": "Start date for including events (UTC). Anything OLDER than this is dropped. Format should match --dt",
+    "--ed": "End date for including events (UTC). Anything NEWER than this is dropped. Format should match --dt",
+    "--fj": "When true, export all available data when using --json",
+    "--tdt": "The number of seconds to use for time discrepancy detection. Default is 1",
+    "--met": "When true, show metrics about processed event log. Default is true",
+    "--maps": "The path where event maps are located. Defaults to 'Maps' folder where program was executed",
+    "--dedupe": "Deduplicate -f or -d & VSCs based on SHA-1. First file found wins",
+    "--sync": "If true, the latest maps from https://github.com/EricZimmerman/evtx/tree/master/evtx/Maps are downloaded and local maps updated",
+    "--debug": "Show debug information during processing",
+    "--trace": "Show trace information during processing",
+    "--co": "When true, save all console messages to <timestamp>_EvtxECmd_<version>_ConsoleLog.txt in the output directory (the first of --csv, --json, --xml given). Use --co false to turn it off"
+   },
+   "sidecar_directories": {
+    "Maps": 475
+   }
+  },
+  {
+   "tool_id": "ezviewer",
+   "flavor": "net10",
+   "archive_name": "EZViewer.zip",
+   "archive_sha256": "715caf7b2d2cfa187a965b5531c4aa8783d272a2df5903a560205b92346c5303",
+   "archive_size": 89831149,
+   "entry_count": 3,
+   "top_level": [
+    "EZViewer"
+   ],
+   "main_member": "EZViewer/EZViewer.exe",
+   "main_member_sha256": "c48baefdac0d2d6cc91334cd779a18edc3a713076f57df9689ba4f41a67846c5",
+   "product_version": "2026.10.0",
+   "version": "2026.10.0",
+   "machine": "x64",
+   "architecture": "x64",
+   "single_file_bundle": true,
+   "runtime": {
+    "flavor": "dotnet",
+    "tfm": "net10.0",
+    "frameworks": [
+     [
+      "Microsoft.NETCore.App",
+      "10.0.0"
+     ],
+     [
+      "Microsoft.WindowsDesktop.App",
+      "10.0.0"
+     ]
+    ],
+    "source": "embedded single-file bundle runtimeconfig"
+   },
+   "certificate_common_names": [
+    "AAA Certificate Services",
+    "Sectigo Public Code Signing Root R46",
+    "Sectigo Public Code Signing CA R36",
+    "ZimTech LLC",
+    "Sectigo Public Time Stamping Signer R37",
+    "Sectigo Public Time Stamping CA R41",
+    "Sectigo Public Time Stamping Root R46",
+    "USERTrust RSA Certification Authority"
+   ],
+   "has_certificate_table": true
+  },
+  {
+   "tool_id": "get-zimmermantools",
+   "flavor": "net10",
+   "archive_name": "Get-ZimmermanTools.zip",
+   "archive_sha256": "f620190c14b0e02e3aba5bc47dbc08bae782ae58deecd8deb1271eeac2525dd4",
+   "archive_size": 17856,
+   "entry_count": 1,
+   "top_level": [
+    "Get-ZimmermanTools.ps1"
+   ],
+   "main_member": "Get-ZimmermanTools.ps1",
+   "main_member_sha256": "2cbf18d4e9abe26d41cdcc0f0c22add212e87f132f606b5acce7b504462889b4",
+   "script_has_signature_block": true,
+   "script_lines": 852
+  },
+  {
+   "tool_id": "hasher",
+   "flavor": "net10",
+   "archive_name": "hasher.zip",
+   "archive_sha256": "972b00461fd896a3c18e11c0eee829897325c4123c159de707be2ddd86e93a23",
+   "archive_size": 58260909,
+   "entry_count": 2,
+   "top_level": [
+    "Hasher"
+   ],
+   "main_member": "Hasher/Hasher.exe",
+   "main_member_sha256": "8489bc3c2d37594faeeaed9ac733550c22b61e1c530140b8da0989a7683ff0eb",
+   "product_version": "2026.10.0",
+   "version": "2026.10.0",
+   "machine": "x64",
+   "architecture": "x64",
+   "single_file_bundle": true,
+   "runtime": {
+    "flavor": "dotnet",
+    "tfm": "net10.0",
+    "frameworks": [
+     [
+      "Microsoft.NETCore.App",
+      "10.0.0"
+     ],
+     [
+      "Microsoft.WindowsDesktop.App",
+      "10.0.0"
+     ]
+    ],
+    "source": "embedded single-file bundle runtimeconfig"
+   },
+   "certificate_common_names": [
+    "AAA Certificate Services",
+    "Sectigo Public Code Signing Root R46",
+    "Sectigo Public Code Signing CA R36",
+    "ZimTech LLC",
+    "Sectigo Public Time Stamping Signer R37",
+    "Sectigo Public Time Stamping CA R41",
+    "Sectigo Public Time Stamping Root R46",
+    "USERTrust RSA Certification Authority"
+   ],
+   "has_certificate_table": true
+  },
+  {
+   "tool_id": "iisgeolocate",
+   "flavor": "net10",
+   "archive_name": "iisGeolocate.zip",
+   "archive_sha256": "5674a0be13852ddfbfb8b188028510654be377728597066c04d7b9b9d2be1450",
+   "archive_size": 33739694,
+   "entry_count": 4,
+   "top_level": [
+    "iisGeolocate"
+   ],
+   "main_member": "iisGeolocate/iisGeolocate.dll",
+   "main_member_sha256": "7c5b6bc4827e49825a00c31126ae829462b414c68763398ec53490c2db33243e",
+   "product_version": "2026.10.1+173eba9f440277c6a2c725ed6dd6b59132a4a2ed",
+   "version": "2026.10.1",
+   "machine": "x86",
+   "architecture": "anycpu",
+   "single_file_bundle": false,
+   "runtime": {
+    "flavor": "dotnet",
+    "tfm": "net10.0",
+    "frameworks": [
+     [
+      "Microsoft.NETCore.App",
+      "10.0.0"
+     ]
+    ],
+    "source": "iisGeolocate.runtimeconfig.json"
+   },
+   "certificate_common_names": [
+    "AAA Certificate Services",
+    "Sectigo Public Code Signing Root R46",
+    "Sectigo Public Code Signing CA R36",
+    "ZimTech LLC",
+    "Sectigo Public Time Stamping Signer R37",
+    "Sectigo Public Time Stamping CA R41",
+    "Sectigo Public Time Stamping Root R46",
+    "USERTrust RSA Certification Authority"
+   ],
+   "has_certificate_table": true,
+   "apphost_member": "iisGeolocate/iisGeolocate.exe",
+   "apphost_sha256": "43691f033ed71445fe61e71edddc6bcfeba8c9277c5526f01962c630e658805a",
+   "static_options": {
+    "-d": "Directory to recursively process for IIS logs. This will be searched for *.log files",
+    "--csv": "Directory to save CSV formatted results to. Be sure to include the full path in double quotes",
+    "--db": "MaxMind database to use (City, Enterprise or Country). Default is GeoIP2-City.mmdb, else GeoLite2-City.mmdb, next to iisGeolocate",
+    "--sbl": "When true, do NOT show bad lines to console (they are still logged to a file). Default is false",
+    "--nul": "When true, do NOT create updated CSV files in --csv directory. Default is false",
+    "--co": "When true, save all console messages to <timestamp>_iisGeolocate_<version>_ConsoleLog.txt in the --csv directory. Use --co false to turn it off"
+   }
+  },
+  {
+   "tool_id": "jlecmd",
+   "flavor": "net10",
+   "archive_name": "JLECmd.zip",
+   "archive_sha256": "fd6d63a95911ad37aaf3432cb1fb1f190a75a12127c71a41cf85efc1e928e11d",
+   "archive_size": 2587948,
+   "entry_count": 3,
+   "top_level": [
+    "JLECmd.dll",
+    "JLECmd.exe",
+    "JLECmd.runtimeconfig.json"
+   ],
+   "main_member": "JLECmd.dll",
+   "main_member_sha256": "b996b10e3a68a752effb78d05f581210cf9d8588b38b896bbcd6a274da771d92",
+   "product_version": "2026.10.5+0b3665f24c9a1acbd0a0f403cee1ebeba6637fbb",
+   "version": "2026.10.5",
+   "machine": "x86",
+   "architecture": "anycpu",
+   "single_file_bundle": false,
+   "runtime": {
+    "flavor": "dotnet",
+    "tfm": "net10.0",
+    "frameworks": [
+     [
+      "Microsoft.NETCore.App",
+      "10.0.0"
+     ]
+    ],
+    "source": "JLECmd.runtimeconfig.json"
+   },
+   "certificate_common_names": [
+    "AAA Certificate Services",
+    "Sectigo Public Code Signing Root R46",
+    "Sectigo Public Code Signing CA R36",
+    "ZimTech LLC",
+    "Sectigo Public Time Stamping Signer R37",
+    "Sectigo Public Time Stamping CA R41",
+    "Sectigo Public Time Stamping Root R46",
+    "USERTrust RSA Certification Authority"
+   ],
+   "has_certificate_table": true,
+   "apphost_member": "JLECmd.exe",
+   "apphost_sha256": "86715c8da204415cd628a59028ca625e145fd873cb31751a2194592087a62e31",
+   "static_options": {
+    "--withDir": "   --- DestList Property Store information ---",
+    "-f": "File to process. Either this or -d is required",
+    "-d": "Directory to recursively process. Either this or -f is required",
+    "--all": "Process all files in directory vs. only files matching *.automaticDestinations-ms or *.customDestinations-ms",
+    "--csv": "Directory to save CSV formatted results to. Be sure to include the full path in double quotes",
+    "--csvf": "File name to save CSV formatted results to. When present, overrides default name",
+    "--json": "Directory to save JSON formatted results to. Be sure to include the full path in double quotes. Use --pretty for a more human readable layout",
+    "--jsonf": "File name to save JSON formatted results to. When present, overrides default name",
+    "--html": "Directory to save xhtml formatted results to. Be sure to include the full path in double quotes",
+    "--pretty": "When exporting to json, use a more human readable layout",
+    "-q": "Do not dump full details about each file processed. Speeds up processing when using --json or --csv",
+    "--ld": "Include more information about lnk files",
+    "--fd": "Include full information about lnk files (Alternatively, dump lnk files using --dumpTo and process with LECmd)",
+    "--appIds": "Path to file containing AppIDs and descriptions (appid|description format). New appIds are added to the built-in list, existing appIds will have their descriptions updated",
+    "--dumpTo": "Directory to save exported lnk files",
+    "--dt": "The custom date/time format to use when displaying time stamps. See https://goo.gl/CNVq0k for options",
+    "--mp": "When true, display higher precision for timestamps",
+    "--cp": "Code page to parse strings",
+    "--user": "Username to include in JSON/CSV output (e.g. the owner of the jump list artifacts)",
+    "--debug": "Show debug information during processing",
+    "--trace": "Show trace information during processing",
+    "--co": "When true, save all console messages to <timestamp>_JLECmd_<version>_ConsoleLog.txt in the output directory (the first of --csv, --json, --html, --dumpTo given). Use --co false to turn it off",
+    "-L": "VS_VERSION_INFO"
+   }
+  },
+  {
+   "tool_id": "jumplistexplorer",
+   "flavor": "net10",
+   "archive_name": "JumpListExplorer.zip",
+   "archive_sha256": "5dfc260d8d14c2bab339e73a53eaa1ab3041b47608e0424c3fe886b5b568b44e",
+   "archive_size": 89810850,
+   "entry_count": 2,
+   "top_level": [
+    "JumpListExplorer"
+   ],
+   "main_member": "JumpListExplorer/JumpListExplorer.exe",
+   "main_member_sha256": "deaeb4df38b88c4eb9470a83596e69f6f487d5c8c543aeb1874a2041d8fbfc8d",
+   "product_version": "2026.10.1",
+   "version": "2026.10.1",
+   "machine": "x64",
+   "architecture": "x64",
+   "single_file_bundle": true,
+   "runtime": {
+    "flavor": "dotnet",
+    "tfm": "net10.0",
+    "frameworks": [
+     [
+      "Microsoft.NETCore.App",
+      "10.0.0"
+     ],
+     [
+      "Microsoft.WindowsDesktop.App",
+      "10.0.0"
+     ]
+    ],
+    "source": "embedded single-file bundle runtimeconfig"
+   },
+   "certificate_common_names": [
+    "AAA Certificate Services",
+    "Sectigo Public Code Signing Root R46",
+    "Sectigo Public Code Signing CA R36",
+    "ZimTech LLC",
+    "Sectigo Public Time Stamping Signer R37",
+    "Sectigo Public Time Stamping CA R41",
+    "Sectigo Public Time Stamping Root R46",
+    "USERTrust RSA Certification Authority"
+   ],
+   "has_certificate_table": true
+  },
+  {
+   "tool_id": "lecmd",
+   "flavor": "net10",
+   "archive_name": "LECmd.zip",
+   "archive_sha256": "c9d7054f41149b11c9394c4a6b92c9073dc29531a1d82eea92771bc52b937d45",
+   "archive_size": 2643671,
+   "entry_count": 3,
+   "top_level": [
+    "LECmd.dll",
+    "LECmd.exe",
+    "LECmd.runtimeconfig.json"
+   ],
+   "main_member": "LECmd.dll",
+   "main_member_sha256": "f5e892f2bbd9bf49b51d9275ccbfb664be7105dd3b07f7edd83729e65877f321",
+   "product_version": "2026.10.3+1415db638c60920a33cacc213e9e4539eb2634ce",
+   "version": "2026.10.3",
+   "machine": "x86",
+   "architecture": "anycpu",
+   "single_file_bundle": false,
+   "runtime": {
+    "flavor": "dotnet",
+    "tfm": "net10.0",
+    "frameworks": [
+     [
+      "Microsoft.NETCore.App",
+      "10.0.0"
+     ]
+    ],
+    "source": "LECmd.runtimeconfig.json"
+   },
+   "certificate_common_names": [
+    "AAA Certificate Services",
+    "Sectigo Public Code Signing Root R46",
+    "Sectigo Public Code Signing CA R36",
+    "ZimTech LLC",
+    "Sectigo Public Time Stamping Signer R37",
+    "Sectigo Public Time Stamping CA R41",
+    "Sectigo Public Time Stamping Root R46",
+    "USERTrust RSA Certification Authority"
+   ],
+   "has_certificate_table": true,
+   "apphost_member": "LECmd.exe",
+   "apphost_sha256": "42007b5a8c229417500357a03539653e913e518f509994a8386993d498937f31",
+   "static_options": {
+    "-f": "File to process. Either this or -d is required",
+    "-d": "Directory to recursively process. Either this or -f is required",
+    "-r": "Only process lnk files pointing to removable drives",
+    "--all": "Process all files in directory vs. only files matching *.lnk",
+    "--csv": "Directory to save CSV formatted results to. Be sure to include the full path in double quotes",
+    "--csvf": "File name to save CSV formatted results to. When present, overrides default name",
+    "--json": "Directory to save JSON formatted results to. Be sure to include the full path in double quotes. Use --pretty for a more human readable layout",
+    "--xml": "Directory to save XML formatted results to. Be sure to include the full path in double quotes",
+    "--html": "Directory to save xhtml formatted results to. Be sure to include the full path in double quotes",
+    "--pretty": "When exporting to json, use a more human readable layout",
+    "-q": "Do not dump full details about each file processed. Speeds up processing when using --json or --csv",
+    "--nid": "Suppress Target ID list details from being displayed",
+    "--neb": "Suppress Extra blocks information from being displayed",
+    "--dt": "The custom date/time format to use when displaying time stamps. See https://goo.gl/CNVq0k for options",
+    "--mp": "When true, display higher precision for timestamps",
+    "--cp": "Code page to parse strings",
+    "--debug": "Show debug information during processing",
+    "--trace": "Show trace information during processing",
+    "--co": "When true, save all console messages to <timestamp>_LECmd_<version>_ConsoleLog.txt in the output directory (the first of --csv, --json, --xml, --html given). Use --co false to turn it off"
+   }
+  },
+  {
+   "tool_id": "mftecmd",
+   "flavor": "net10",
+   "archive_name": "MFTECmd.zip",
+   "archive_sha256": "f390ce9077f96bcf34561a75c82933f21403fa3e5fda49bcb739a5dda7cddd47",
+   "archive_size": 2429606,
+   "entry_count": 3,
+   "top_level": [
+    "MFTECmd.dll",
+    "MFTECmd.exe",
+    "MFTECmd.runtimeconfig.json"
+   ],
+   "main_member": "MFTECmd.dll",
+   "main_member_sha256": "e646d5cb53e6ed953b2fae6439b7cc3706bfc61486fe3f2c823c7fb4d67d3dee",
+   "product_version": "2026.10.6+2faad79e5338123061bc5893ccd2055aba72a68f",
+   "version": "2026.10.6",
+   "machine": "x86",
+   "architecture": "anycpu",
+   "single_file_bundle": false,
+   "runtime": {
+    "flavor": "dotnet",
+    "tfm": "net10.0",
+    "frameworks": [
+     [
+      "Microsoft.NETCore.App",
+      "10.0.0"
+     ]
+    ],
+    "source": "MFTECmd.runtimeconfig.json"
+   },
+   "certificate_common_names": [
+    "AAA Certificate Services",
+    "Sectigo Public Code Signing Root R46",
+    "Sectigo Public Code Signing CA R36",
+    "ZimTech LLC",
+    "Sectigo Public Time Stamping Signer R37",
+    "Sectigo Public Time Stamping CA R41",
+    "Sectigo Public Time Stamping Root R46",
+    "USERTrust RSA Certification Authority"
+   ],
+   "has_certificate_table": true,
+   "apphost_member": "MFTECmd.exe",
+   "apphost_sha256": "98bba55ec4b3fa93569705baa3e98a23e26125d124e4be5242dd803d48b4c156",
+   "static_options": {
+    "--csv": "--json",
+    "--json": "--body",
+    "--body": "Destination location not available for {Dir} ({Option}). Verify drive letter and try again. Exiting",
+    "-f": "File to process ($MFT | $J | $LogFile | $Boot | $SDS | $I30). Required",
+    "-m": "$MFT file to use when -f points to a $J or $LogFile file, to resolve parent paths. For $J, the paths are as they were when each record was written",
+    "--csvf": "File name to save CSV formatted results to. When present, overrides default name",
+    "--jsonf": "File name to save JSON formatted results to. When present, overrides default name",
+    "--bodyf": "File name to save body formatted results to. When present, overrides default name",
+    "--bdl": "Drive letter (C, D, etc.) to use with bodyfile. Only the drive letter itself should be provided",
+    "--blf": "When true, use LF vs CRLF for newlines",
+    "--dd": "Directory to save exported $MFT FILE record. --do is also required when using this option",
+    "--do": "Offset of the $MFT FILE record to dump as decimal or hex. Ex: 5120 or 0x1400 Use --de or --debug to see offsets",
+    "--de": "Dump full details for $MFT entry/sequence #. Format is 'Entry' or 'Entry-Seq' as decimal or hex. Example: 5, 624-5 or 0x270-0x5.",
+    "--dr": "When true, dump $MFT resident files to dir specified by --csv or --json, in 'Resident' subdirectory. Files will be named '<EntryNumber>-<SequenceNumber>-<AttributeNumber>_<FileName>.bin'",
+    "--fls": "When true, displays contents of directory from $MFT specified by --de. Ignored when --de points to a file",
+    "--ds": "Dump full details for Security Id from $SDS as decimal or hex. Example: 624 or 0x270",
+    "--dt": "The custom date/time format to use when displaying time stamps. See https://goo.gl/CNVq0k for options",
+    "--sn": "Include DOS file name types in $MFT output",
+    "--fl": "Generate condensed file listing of parsed $MFT contents. Requires --csv",
+    "--at": "When true, include all timestamps from 0x30 attribute vs only when they differ from 0x10 in the $MFT",
+    "--rs": "When true, recover slack space from FILE records when processing $MFT files. This option has no effect for $I30 files",
+    "--vss": "Process all Volume Shadow Copies that exist on drive specified by -f",
+    "--dedupe": "Deduplicate -f & VSCs based on SHA-1. First file found wins",
+    "--ir": "Include resident data in JSON/CSV output",
+    "--re": "Comma-separated list of extensions to include for resident data (e.g., '.txt,.ps1,.bat'). If omitted, includes all",
+    "--rm": "Maximum size in bytes for resident data to include (max: 1024000)",
+    "--cutoff": "Only include $MFT records whose $STANDARD_INFO created or modified time is on or after this date/time (UTC unless an offset is given). Example: 2025-10-19 or 2025-10-19T13:45:30Z",
+    "--lowmem": "Use less memory at the cost of speed (workstation instead of server garbage collection): about 30% less peak memory, and about 1.4x slower",
+    "--debug": "Show debug information during processing",
+    "--trace": "Show trace information during processing",
+    "--co": "When true, save all console messages to <timestamp>_MFTECmd_<version>_ConsoleLog.txt in the output directory (the first of --csv, --json, --body, --dd given). Use --co false to turn it off"
+   }
+  },
+  {
+   "tool_id": "mftexplorer",
+   "flavor": "net10",
+   "archive_name": "MFTExplorer.zip",
+   "archive_sha256": "f5d160d5a20d0d8a4432068504c3f7daf20412515877782f3549787e4887b065",
+   "archive_size": 89748001,
+   "entry_count": 2,
+   "top_level": [
+    "MFTExplorer"
+   ],
+   "main_member": "MFTExplorer/MFTExplorer.exe",
+   "main_member_sha256": "290bb77588f50681f709a608c7bfd59ee37492435eedea9645e1e5c6dd413b8a",
+   "product_version": "2026.10.0",
+   "version": "2026.10.0",
+   "machine": "x64",
+   "architecture": "x64",
+   "single_file_bundle": true,
+   "runtime": {
+    "flavor": "dotnet",
+    "tfm": "net10.0",
+    "frameworks": [
+     [
+      "Microsoft.NETCore.App",
+      "10.0.0"
+     ],
+     [
+      "Microsoft.WindowsDesktop.App",
+      "10.0.0"
+     ]
+    ],
+    "source": "embedded single-file bundle runtimeconfig"
+   },
+   "certificate_common_names": [
+    "AAA Certificate Services",
+    "Sectigo Public Code Signing Root R46",
+    "Sectigo Public Code Signing CA R36",
+    "ZimTech LLC",
+    "Sectigo Public Time Stamping Signer R37",
+    "Sectigo Public Time Stamping CA R41",
+    "Sectigo Public Time Stamping Root R46",
+    "USERTrust RSA Certification Authority"
+   ],
+   "has_certificate_table": true
+  },
+  {
+   "tool_id": "pecmd",
+   "flavor": "net10",
+   "archive_name": "PECmd.zip",
+   "archive_sha256": "9e71c85290f518af53db9928552c2344a130c984bf4451e0ec158e5c2f80f105",
+   "archive_size": 2333488,
+   "entry_count": 3,
+   "top_level": [
+    "PECmd.dll",
+    "PECmd.exe",
+    "PECmd.runtimeconfig.json"
+   ],
+   "main_member": "PECmd.dll",
+   "main_member_sha256": "a92b422a0ab02e679e1909b0553f5d5ecec6688f0a7251d32a90817b79a81e1b",
+   "product_version": "2026.10.3+6586b8ab2417e4881b3e0166668ed3f1251204e3",
+   "version": "2026.10.3",
+   "machine": "x86",
+   "architecture": "anycpu",
+   "single_file_bundle": false,
+   "runtime": {
+    "flavor": "dotnet",
+    "tfm": "net10.0",
+    "frameworks": [
+     [
+      "Microsoft.NETCore.App",
+      "10.0.0"
+     ]
+    ],
+    "source": "PECmd.runtimeconfig.json"
+   },
+   "certificate_common_names": [
+    "AAA Certificate Services",
+    "Sectigo Public Code Signing Root R46",
+    "Sectigo Public Code Signing CA R36",
+    "ZimTech LLC",
+    "Sectigo Public Time Stamping Signer R37",
+    "Sectigo Public Time Stamping CA R41",
+    "Sectigo Public Time Stamping Root R46",
+    "USERTrust RSA Certification Authority"
+   ],
+   "has_certificate_table": true,
+   "apphost_member": "PECmd.exe",
+   "apphost_sha256": "ddcbdd53855eab5b811a02e919bb573851fb771c7afb84c800b8bc36fcc10a0d",
+   "static_options": {
+    "-f": "File to process. Either this or -d is required",
+    "-d": "Directory to recursively process. Either this or -f is required",
+    "-k": "Comma separated list of keywords to highlight in output. By default, 'temp' and 'tmp' are highlighted. Any additional keywords will be added to these",
+    "-o": "When specified, save prefetch file bytes to the given path. Useful to look at decompressed Win10 files",
+    "-q": "Do not dump full details about each file processed. Speeds up processing when using --json or --csv",
+    "--csv": "Directory to save CSV formatted results to. Be sure to include the full path in double quotes",
+    "--csvf": "File name to save CSV formatted results to. When present, overrides default name",
+    "--json": "Directory to save JSON formatted results to. Be sure to include the full path in double quotes",
+    "--jsonf": "File name to save JSON formatted results to. When present, overrides default name",
+    "--html": "Directory to save xhtml formatted results to. Be sure to include the full path in double quotes",
+    "--dt": "The custom date/time format to use when displaying time stamps. See https://goo.gl/CNVq0k for options",
+    "--mp": "When true, display higher precision for timestamps",
+    "--vss": "Process all Volume Shadow Copies that exist on drive specified by -f or -d",
+    "--dedupe": "Deduplicate -f or -d & VSCs based on SHA-1. First file found wins",
+    "--ads": "Scan alternate data streams of every file under -d (or the -f file) and parse any prefetch data found hidden in them",
+    "--debug": "Show debug information during processing",
+    "--trace": "Show trace information during processing",
+    "--co": "When true, save all console messages to <timestamp>_PECmd_<version>_ConsoleLog.txt in the output directory (the first of --csv, --json, --html given). Use --co false to turn it off"
+   }
+  },
+  {
+   "tool_id": "rbcmd",
+   "flavor": "net10",
+   "archive_name": "RBCmd.zip",
+   "archive_sha256": "e08420440e7d81da4aa0f85748cab54c3f2d4facff7ffe38f43bcac84b31ca3b",
+   "archive_size": 1737756,
+   "entry_count": 3,
+   "top_level": [
+    "RBCmd.dll",
+    "RBCmd.exe",
+    "RBCmd.runtimeconfig.json"
+   ],
+   "main_member": "RBCmd.dll",
+   "main_member_sha256": "5ece32d246ec1ee1a1059e3895fc6438646dee91f80e494312c24f8bd4b27b8c",
+   "product_version": "2026.10.1+f2ed07ab4634064e7dbc02a1155fd70b7ff3f51b",
+   "version": "2026.10.1",
+   "machine": "x86",
+   "architecture": "anycpu",
+   "single_file_bundle": false,
+   "runtime": {
+    "flavor": "dotnet",
+    "tfm": "net10.0",
+    "frameworks": [
+     [
+      "Microsoft.NETCore.App",
+      "10.0.0"
+     ]
+    ],
+    "source": "RBCmd.runtimeconfig.json"
+   },
+   "certificate_common_names": [
+    "AAA Certificate Services",
+    "Sectigo Public Code Signing Root R46",
+    "Sectigo Public Code Signing CA R36",
+    "ZimTech LLC",
+    "Sectigo Public Time Stamping Signer R37",
+    "Sectigo Public Time Stamping CA R41",
+    "Sectigo Public Time Stamping Root R46",
+    "USERTrust RSA Certification Authority"
+   ],
+   "has_certificate_table": true,
+   "apphost_member": "RBCmd.exe",
+   "apphost_sha256": "c617e0be1b124609b86b88da6a44982c7ee1eaeaa4ffeb169da67d9cc6efd5c0",
+   "static_options": {
+    "-d": "Directory to recursively process. Either this or -f is required",
+    "-f": "File to process. Either this or -d is required",
+    "-q": "Only show the filename being processed vs all output. Useful to speed up exporting to JSON and/or CSV",
+    "--dt": "The custom date/time format to use when displaying time stamps. See https://goo.gl/CNVq0k for options",
+    "--csv": "Directory to save CSV formatted results to. Be sure to include the full path in double quotes",
+    "--csvf": "File name to save CSV formatted results to. When present, overrides default name",
+    "--debug": "Show debug information during processing",
+    "--trace": "Show trace information during processing",
+    "--co": "When true, save all console messages to <timestamp>_RBCmd_<version>_ConsoleLog.txt in the --csv directory. Use --co false to turn it off"
+   }
+  },
+  {
+   "tool_id": "recentfilecacheparser",
+   "flavor": "net10",
+   "archive_name": "RecentFileCacheParser.zip",
+   "archive_sha256": "4b7e1bb7c64ee668de34db4722c35d3e835e7822b8a50a5861997cb2b7462723",
+   "archive_size": 1645538,
+   "entry_count": 3,
+   "top_level": [
+    "RecentFileCacheParser.dll",
+    "RecentFileCacheParser.exe",
+    "RecentFileCacheParser.runtimeconfig.json"
+   ],
+   "main_member": "RecentFileCacheParser.dll",
+   "main_member_sha256": "b4683c157e18c7a97fc92edb7ff6dc8a08202c0b5314247bfc0de85de22c43ce",
+   "product_version": "2026.10.2+f953a6028c09a57006be1fec365a69cda7c87acf",
+   "version": "2026.10.2",
+   "machine": "x86",
+   "architecture": "anycpu",
+   "single_file_bundle": false,
+   "runtime": {
+    "flavor": "dotnet",
+    "tfm": "net10.0",
+    "frameworks": [
+     [
+      "Microsoft.NETCore.App",
+      "10.0.0"
+     ]
+    ],
+    "source": "RecentFileCacheParser.runtimeconfig.json"
+   },
+   "certificate_common_names": [
+    "AAA Certificate Services",
+    "Sectigo Public Code Signing Root R46",
+    "Sectigo Public Code Signing CA R36",
+    "ZimTech LLC",
+    "Sectigo Public Time Stamping Signer R37",
+    "Sectigo Public Time Stamping CA R41",
+    "Sectigo Public Time Stamping Root R46",
+    "USERTrust RSA Certification Authority"
+   ],
+   "has_certificate_table": true,
+   "apphost_member": "RecentFileCacheParser.exe",
+   "apphost_sha256": "ba1e922079cb18d36970873f18aad0f5ae8697fa0ce3198f9f2c31fe5b318078",
+   "static_options": {
+    "-f": "File to process. Required",
+    "--csv": "Directory to save CSV formatted results to. Be sure to include the full path in double quotes",
+    "--csvf": "File name to save CSV formatted results to. When present, overrides default name",
+    "--json": "Directory to save json representation to. Use --pretty for a more human readable layout",
+    "--pretty": "When exporting to json, use a more human readable layout",
+    "-q": "Only show the filename being processed vs all output. Useful to speed up exporting to JSON and/or CSV",
+    "--co": "When true, save all console messages to <timestamp>_RecentFileCacheParser_<version>_ConsoleLog.txt in the output directory (the first of --csv, --json given). Use --co false to turn it off"
+   }
+  },
+  {
+   "tool_id": "recmd",
+   "flavor": "net10",
+   "archive_name": "RECmd.zip",
+   "archive_sha256": "dc1fca0143f0a2e837b113d6707c17272accf977a6ae7555ffd5e8b9b1f61bb1",
+   "archive_size": 4852367,
+   "entry_count": 98,
+   "top_level": [
+    "RECmd"
+   ],
+   "main_member": "RECmd/RECmd.dll",
+   "main_member_sha256": "f85b61759b92e32497b0eb4bee44c042549b2a8d82813a83a2c63b3087b05c1b",
+   "product_version": "2026.10.2+dc889e397cea7bb89668a91efa001e30d9fd0bfa",
+   "version": "2026.10.2",
+   "machine": "x86",
+   "architecture": "anycpu",
+   "single_file_bundle": false,
+   "runtime": {
+    "flavor": "dotnet",
+    "tfm": "net10.0",
+    "frameworks": [
+     [
+      "Microsoft.NETCore.App",
+      "10.0.0"
+     ]
+    ],
+    "source": "RECmd.runtimeconfig.json"
+   },
+   "certificate_common_names": [
+    "AAA Certificate Services",
+    "Sectigo Public Code Signing Root R46",
+    "Sectigo Public Code Signing CA R36",
+    "ZimTech LLC",
+    "Sectigo Public Time Stamping Signer R37",
+    "Sectigo Public Time Stamping CA R41",
+    "Sectigo Public Time Stamping Root R46",
+    "USERTrust RSA Certification Authority"
+   ],
+   "has_certificate_table": true,
+   "apphost_member": "RECmd/RECmd.exe",
+   "apphost_sha256": "98f272f27a0866d6ef5208b308bae5429fb9bb465c06ca6d362505c56a0a718d",
+   "static_options": {
+    "--vss": "{Switch} not supported on non-Windows platforms. Disabling",
+    "--csv": "--json",
+    "--json": "--bn",
+    "--bn": "Only use one of {S1} or {S2} when using {S3}. Exiting",
+    "-f": "Hive to search. -f or -d is required",
+    "-d": "Directory to look for hives (recursively). -f or -d is required",
+    "--kn": "Display details for key name. Includes subkeys and values",
+    "--vn": "Value name. Only this value will be dumped",
+    "--csvf": "File name to save CSV formatted results to. When present, overrides default name",
+    "--saveTo": "Saves --vn value data in binary form to file. Expects path to a FILE",
+    "--jsonf": "File name to save JSON formatted results to. When present, overrides default name",
+    "--nl": "When true, allow transaction log files to not exist for dirty hives",
+    "--debug": "Show debug information during processing",
+    "--trace": "Show trace information during processing",
+    "--co": "When true, save all console messages to <timestamp>_RECmd_<version>_ConsoleLog.txt in the output directory (the first of --csv, --json given, else the folder of --saveTo). Use --co false to turn it off",
+    "--dedupe": "Deduplicate -f or -d & VSCs based on SHA-1. First file found wins",
+    "--dt": "The custom date/time format to use when displaying time stamps. See https://goo.gl/CNVq0k for options",
+    "--sync": "If true, the latest batch files from https://github.com/EricZimmerman/RECmd/tree/master/BatchExamples are downloaded and local files updated",
+    "--recover": "If true, recover deleted keys/values. Default is true",
+    "--regex": "If present, treat <string> in --sk, --sv, --sd, and --ss as a regular expression",
+    "--nd": "If true, do not show data when using --sd or --ss",
+    "--details": "Show more details when displaying results",
+    "--literal": "If true, --sd and --ss search value will not be interpreted as ASCII or Unicode byte strings",
+    "--base64": "Find Base64 encoded values with size >= Base64 (specified in bytes)",
+    "--minSize": "Find values with data size >= MinSize (specified in bytes)",
+    "--sa": "Search for <string> in keys, values, data, and slack",
+    "--sk": "Search for <string> in value record's key names",
+    "--sv": "Search for <string> in value record's value names",
+    "--sd": "Search for <string> in value record's value data",
+    "--ss": "Search for <string> in value record's value slack"
+   },
+   "sidecar_directories": {
+    "BatchExamples": 25,
+    "Plugins": 70
+   }
+  },
+  {
+   "tool_id": "registryexplorer",
+   "flavor": "net10",
+   "archive_name": "RegistryExplorer.zip",
+   "archive_sha256": "0c8ecdd1f9529d820a30085295cd2fc207ca94d518e133546a8317f715a37e37",
+   "archive_size": 96723668,
+   "entry_count": 220,
+   "top_level": [
+    "RegistryExplorer"
+   ],
+   "main_member": "RegistryExplorer/RegistryExplorer.exe",
+   "main_member_sha256": "d3bf5a0c38fe0e0b5b0a0e505a207825334f77374c7d46cd8a2c7ab6cb03cb51",
+   "product_version": "2026.10.1",
+   "version": "2026.10.1",
+   "machine": "x64",
+   "architecture": "x64",
+   "single_file_bundle": true,
+   "runtime": {
+    "flavor": "dotnet",
+    "tfm": "net10.0",
+    "frameworks": [
+     [
+      "Microsoft.NETCore.App",
+      "10.0.0"
+     ],
+     [
+      "Microsoft.WindowsDesktop.App",
+      "10.0.0"
+     ]
+    ],
+    "source": "embedded single-file bundle runtimeconfig"
+   },
+   "certificate_common_names": [
+    "AAA Certificate Services",
+    "Sectigo Public Code Signing Root R46",
+    "Sectigo Public Code Signing CA R36",
+    "ZimTech LLC",
+    "Sectigo Public Time Stamping Signer R37",
+    "Sectigo Public Time Stamping CA R41",
+    "Sectigo Public Time Stamping Root R46",
+    "USERTrust RSA Certification Authority"
+   ],
+   "has_certificate_table": true,
+   "sidecar_directories": {
+    "Bookmarks": 139,
+    "Plugins": 70,
+    "Settings": 8
+   }
+  },
+  {
+   "tool_id": "rla",
+   "flavor": "net10",
+   "archive_name": "rla.zip",
+   "archive_sha256": "d809a2cf3054e503d84cbfb2659743f8364292dd07b7ddd4e296bd4a32efa0aa",
+   "archive_size": 2274131,
+   "entry_count": 3,
+   "top_level": [
+    "rla.dll",
+    "rla.exe",
+    "rla.runtimeconfig.json"
+   ],
+   "main_member": "rla.dll",
+   "main_member_sha256": "b773e7ff08784f828b6f57b1ae7797183d62b925b3b33b5b1d0cb66c9d413ca9",
+   "product_version": "2026.10.1+dc889e397cea7bb89668a91efa001e30d9fd0bfa",
+   "version": "2026.10.1",
+   "machine": "x86",
+   "architecture": "anycpu",
+   "single_file_bundle": false,
+   "runtime": {
+    "flavor": "dotnet",
+    "tfm": "net10.0",
+    "frameworks": [
+     [
+      "Microsoft.NETCore.App",
+      "10.0.0"
+     ]
+    ],
+    "source": "rla.runtimeconfig.json"
+   },
+   "certificate_common_names": [
+    "AAA Certificate Services",
+    "Sectigo Public Code Signing Root R46",
+    "Sectigo Public Code Signing CA R36",
+    "ZimTech LLC",
+    "Sectigo Public Time Stamping Signer R37",
+    "Sectigo Public Time Stamping CA R41",
+    "Sectigo Public Time Stamping Root R46",
+    "USERTrust RSA Certification Authority"
+   ],
+   "has_certificate_table": true,
+   "apphost_member": "rla.exe",
+   "apphost_sha256": "c5cc46a6291769e0ee923c64da9bc6032d82ff1cfcb708c4f49c8b7e38508c7a",
+   "static_options": {
+    "--ca": "Hive {HiveToProcess} is dirty and no transaction logs were found in the same directory. {Switch} is false. Skipping...",
+    "-f": "File to process. Either this or -d is required",
+    "-d": "Directory to recursively process. Either this or -f is required",
+    "--out": "Directory to save hives to, dirty ones with their transaction logs applied (see --ca)",
+    "--cn": "When true and --nop is true, name profile based hives (NTUSER.DAT, UsrClass.dat) drive_profile_name, so they don't collide",
+    "--nop": "When true, save hives directly in --out. When false, save them under their original path in --out (C:\\Windows\\System32\\config\\SAM as <out>\\C\\Windows\\System32\\config\\SAM)",
+    "--debug": "Show debug information during processing",
+    "--trace": "Show trace information during processing",
+    "--co": "When true, save all console messages to <timestamp>_rla_<version>_ConsoleLog.txt in the --out directory. Use --co false to turn it off"
+   }
+  },
+  {
+   "tool_id": "sbecmd",
+   "flavor": "net10",
+   "archive_name": "SBECmd.zip",
+   "archive_sha256": "1c6bb737e041f4a18c1b39516ef9e373004caced1b02b24246ddff6c615c08dc",
+   "archive_size": 3240749,
+   "entry_count": 3,
+   "top_level": [
+    "SBECmd.dll",
+    "SBECmd.exe",
+    "SBECmd.runtimeconfig.json"
+   ],
+   "main_member": "SBECmd.dll",
+   "main_member_sha256": "32eacd2fb689c40a91dcf7c3a1dd2b7dc9ab467374dc170435935f9685e4b7ec",
+   "product_version": "2026.10.2+f750a40f11b72c922428eff80e866c800631544d",
+   "version": "2026.10.2",
+   "machine": "x86",
+   "architecture": "anycpu",
+   "single_file_bundle": false,
+   "runtime": {
+    "flavor": "dotnet",
+    "tfm": "net10.0",
+    "frameworks": [
+     [
+      "Microsoft.NETCore.App",
+      "10.0.0"
+     ]
+    ],
+    "source": "SBECmd.runtimeconfig.json"
+   },
+   "certificate_common_names": [
+    "AAA Certificate Services",
+    "Sectigo Public Code Signing Root R46",
+    "Sectigo Public Code Signing CA R36",
+    "ZimTech LLC",
+    "Sectigo Public Time Stamping Signer R37",
+    "Sectigo Public Time Stamping CA R41",
+    "Sectigo Public Time Stamping Root R46",
+    "USERTrust RSA Certification Authority"
+   ],
+   "has_certificate_table": true,
+   "apphost_member": "SBECmd.exe",
+   "apphost_sha256": "38cabe382311d5c955d3848b74f7af0d231fe02dfcaeba42266c2d8941e7194b",
+   "static_options": {
+    "--csv": "{json} does not exist. Creating...",
+    "--json": "{Header}",
+    "-d": "Directory to look for registry hives. This or -l is required",
+    "-l": "Process live registry (Requires Administrator rights). This or -d is required",
+    "--csvf": "File name to save CSV formatted results to. When present, overrides default name",
+    "--jsonf": "File name to save JSON formatted results to. When present, overrides default name",
+    "--dedupe": "When true, SBECmd processes all hives in -d <directory> and removes duplicates. See manual for details",
+    "--dt": "The custom date/time format to use when displaying time stamps. See https://goo.gl/CNVq0k for options",
+    "--nl": "When true, allow transaction log files to not exist for dirty hives",
+    "--debug": "Show debug information during processing",
+    "--trace": "Show trace information during processing",
+    "--co": "When true, save all console messages to <timestamp>_SBECmd_<version>_ConsoleLog.txt in the --csv directory, else the --json one. Use --co false to turn it off"
+   }
+  },
+  {
+   "tool_id": "sdbexplorer",
+   "flavor": "net10",
+   "archive_name": "SDBExplorer.zip",
+   "archive_sha256": "5279f85cb87f3485a7a3ee71147cfd61cfe51ed5a8d45a12ee48f620eac66109",
+   "archive_size": 89732727,
+   "entry_count": 2,
+   "top_level": [
+    "SDBExplorer"
+   ],
+   "main_member": "SDBExplorer/SDBExplorer.exe",
+   "main_member_sha256": "7bf026ba3247da0c8d6cb8e62253e94105863260165ec6862e42466dfb8c38d9",
+   "product_version": "2026.10.0",
+   "version": "2026.10.0",
+   "machine": "x64",
+   "architecture": "x64",
+   "single_file_bundle": true,
+   "runtime": {
+    "flavor": "dotnet",
+    "tfm": "net10.0",
+    "frameworks": [
+     [
+      "Microsoft.NETCore.App",
+      "10.0.0"
+     ],
+     [
+      "Microsoft.WindowsDesktop.App",
+      "10.0.0"
+     ]
+    ],
+    "source": "embedded single-file bundle runtimeconfig"
+   },
+   "certificate_common_names": [
+    "AAA Certificate Services",
+    "Sectigo Public Code Signing Root R46",
+    "Sectigo Public Code Signing CA R36",
+    "ZimTech LLC",
+    "Sectigo Public Time Stamping Signer R37",
+    "Sectigo Public Time Stamping CA R41",
+    "Sectigo Public Time Stamping Root R46",
+    "USERTrust RSA Certification Authority"
+   ],
+   "has_certificate_table": true
+  },
+  {
+   "tool_id": "shellbagsexplorer",
+   "flavor": "net10",
+   "archive_name": "ShellBagsExplorer.zip",
+   "archive_sha256": "23993c87c007d5e29e0c414572bef6178b15bda521d580e4b61eed9ce8cc0122",
+   "archive_size": 91198125,
+   "entry_count": 2,
+   "top_level": [
+    "ShellBagsExplorer"
+   ],
+   "main_member": "ShellBagsExplorer/ShellBagsExplorer.exe",
+   "main_member_sha256": "aecf4bf1b59a94bbc20161c20a53aa4abdf34e405710b1665d2071328e58801e",
+   "product_version": "2026.10.1",
+   "version": "2026.10.1",
+   "machine": "x64",
+   "architecture": "x64",
+   "single_file_bundle": true,
+   "runtime": {
+    "flavor": "dotnet",
+    "tfm": "net10.0",
+    "frameworks": [
+     [
+      "Microsoft.NETCore.App",
+      "10.0.0"
+     ],
+     [
+      "Microsoft.WindowsDesktop.App",
+      "10.0.0"
+     ]
+    ],
+    "source": "embedded single-file bundle runtimeconfig"
+   },
+   "certificate_common_names": [
+    "AAA Certificate Services",
+    "Sectigo Public Code Signing Root R46",
+    "Sectigo Public Code Signing CA R36",
+    "ZimTech LLC",
+    "Sectigo Public Time Stamping Signer R37",
+    "Sectigo Public Time Stamping CA R41",
+    "Sectigo Public Time Stamping Root R46",
+    "USERTrust RSA Certification Authority"
+   ],
+   "has_certificate_table": true
+  },
+  {
+   "tool_id": "sqlecmd",
+   "flavor": "net10",
+   "archive_name": "SQLECmd.zip",
+   "archive_sha256": "0bbfd432e393d23b16401d8729d53c9e98fac4118ad8f61221484d2aa68490aa",
+   "archive_size": 8492407,
+   "entry_count": 102,
+   "top_level": [
+    "SQLECmd"
+   ],
+   "main_member": "SQLECmd/SQLECmd.dll",
+   "main_member_sha256": "490b951c0c60bf0c28fa5b8d08ee70cf4d57397e221ff48cbe32b95aec814685",
+   "product_version": "2026.10.3+3020ac2b22c3ebca695ca09591311dc9bed8f15f",
+   "version": "2026.10.3",
+   "machine": "x86",
+   "architecture": "anycpu",
+   "single_file_bundle": false,
+   "runtime": {
+    "flavor": "dotnet",
+    "tfm": "net10.0",
+    "frameworks": [
+     [
+      "Microsoft.NETCore.App",
+      "10.0.0"
+     ]
+    ],
+    "source": "SQLECmd.runtimeconfig.json"
+   },
+   "certificate_common_names": [
+    "AAA Certificate Services",
+    "Sectigo Public Code Signing Root R46",
+    "Sectigo Public Code Signing CA R36",
+    "ZimTech LLC",
+    "Sectigo Public Time Stamping Signer R37",
+    "Sectigo Public Time Stamping CA R41",
+    "Sectigo Public Time Stamping Root R46",
+    "USERTrust RSA Certification Authority"
+   ],
+   "has_certificate_table": true,
+   "apphost_member": "SQLECmd/SQLECmd.exe",
+   "apphost_sha256": "adf9a7137715210fc8af0e328d51d694728c16bbed14338e3dac5d6d56cb2ce1",
+   "static_options": {
+    "-wal": "-journal",
+    "-journal": "Could not delete the temporary copy {Folder}",
+    "--debug": "File name: {UnmatchedDb}, Tables: (unable to read: {Message})",
+    "-f": "File to process. Either this or -d is required",
+    "-d": "Directory to recursively process. Either this or -f is required",
+    "--csv": "Directory to save CSV formatted results to. Be sure to include the full path in double quotes",
+    "--json": "Directory to save JSON formatted results to. Be sure to include the full path in double quotes",
+    "--blobdir": "Directory to save blob data to. Be sure to include the full path in double quotes",
+    "--maps": "The path where SQL maps are located. Defaults to 'Maps' folder where program was executed",
+    "--dedupe": "Deduplicate -f or -d files based on SHA-1. First file found wins",
+    "--hunt": "When true, all files are looked at regardless of name and file header is used to identify SQLite files, else filename in map is used to find databases",
+    "--trace": "Show trace information during processing",
+    "--co": "When true, save all console messages to <timestamp>_SQLECmd_<version>_ConsoleLog.txt in the output directory (the first of --csv, --json, --blobdir given). Use --co false to turn it off",
+    "--sync": "If true, the latest maps from https://github.com/EricZimmerman/SQLECmd/tree/master/SQLMap/Maps are downloaded and local maps updated",
+    "--noblob": "If true, disables blob extraction from query results",
+    "--temp": "Folder for the temporary copies of the SQLite databases, which are opened instead of the evidence and deleted when done. Default: a Temp folder next to SQLECmd. A folder that isn't there is created, and removed again when done. If that folder can't be written to, SQLECmd stops: give a writable folder with --temp",
+    "--ifn": "If true, the name of each database is added to the names of its CSV and blob files, so databases processed with the same map can be told apart"
+   },
+   "sidecar_directories": {
+    "Maps": 95,
+    "runtimes": 4
+   }
+  },
+  {
+   "tool_id": "srumecmd",
+   "flavor": "net10",
+   "archive_name": "SrumECmd.zip",
+   "archive_sha256": "10c36aae45e5be856070e192453ffcb7a38f75cacb8a74a2a77085b91927181e",
+   "archive_size": 2092552,
+   "entry_count": 3,
+   "top_level": [
+    "SrumECmd.dll",
+    "SrumECmd.exe",
+    "SrumECmd.runtimeconfig.json"
+   ],
+   "main_member": "SrumECmd.dll",
+   "main_member_sha256": "ca7b1731ecb10d58858f7d377d4e6275fdb2614f3aabfb3e8c07f2d01029b170",
+   "product_version": "2026.10.1+bf1efdc5f623fd607d4d51e9cb253617a6d822f2",
+   "version": "2026.10.1",
+   "machine": "x86",
+   "architecture": "anycpu",
+   "single_file_bundle": false,
+   "runtime": {
+    "flavor": "dotnet",
+    "tfm": "net10.0",
+    "frameworks": [
+     [
+      "Microsoft.NETCore.App",
+      "10.0.0"
+     ]
+    ],
+    "source": "SrumECmd.runtimeconfig.json"
+   },
+   "certificate_common_names": [
+    "AAA Certificate Services",
+    "Sectigo Public Code Signing Root R46",
+    "Sectigo Public Code Signing CA R36",
+    "ZimTech LLC",
+    "Sectigo Public Time Stamping Signer R37",
+    "Sectigo Public Time Stamping CA R41",
+    "Sectigo Public Time Stamping Root R46",
+    "USERTrust RSA Certification Authority"
+   ],
+   "has_certificate_table": true,
+   "apphost_member": "SrumECmd.exe",
+   "apphost_sha256": "82f1885915f16f648494a7ea487a46280223375ae668178d98dc20e0441b16ac",
+   "static_options": {
+    "--csv": "Directory to save CSV formatted results to. Be sure to include the full path in double quotes",
+    "-f": "SRUDB.dat file to parse",
+    "-r": "SOFTWARE hive to process. This is optional, but recommended",
+    "-d": "Directory to recursively process, looking for SRUDB.dat and SOFTWARE hive. This mode is primarily used with KAPE so both SRUDB.dat and SOFTWARE hive can be located",
+    "--dt": "The custom date/time format to use when displaying time stamps. See https://goo.gl/CNVq0k for options",
+    "--temp": "Folder for the temporary copy of the SRUM database and its transaction logs, which is opened instead of the evidence and deleted when done. Default: a Temp folder next to SrumECmd. A folder that isn't there is created, and removed again when done. If that folder can't be written to, SrumECmd stops: give a writable folder with --temp",
+    "--debug": "Show debug information during processing",
+    "--trace": "Show trace information during processing",
+    "--co": "When true, save all console messages to <timestamp>_SrumECmd_<version>_ConsoleLog.txt in the --csv directory. Use --co false to turn it off"
+   }
+  },
+  {
+   "tool_id": "sumecmd",
+   "flavor": "net10",
+   "archive_name": "SumECmd.zip",
+   "archive_sha256": "21c44883f19108aacf49eaaeb06fdfdba68a302890ccf5a465cb6fe258b65b43",
+   "archive_size": 1776248,
+   "entry_count": 3,
+   "top_level": [
+    "SumECmd.dll",
+    "SumECmd.exe",
+    "SumECmd.runtimeconfig.json"
+   ],
+   "main_member": "SumECmd.dll",
+   "main_member_sha256": "c684f66a25588b38db307e45151c02ee7bb213568543d1d6064e3577db936ac6",
+   "product_version": "2026.10.1+79c1ed85ae5b1aaf12bc7445443bc58f0c02e2bd",
+   "version": "2026.10.1",
+   "machine": "x86",
+   "architecture": "anycpu",
+   "single_file_bundle": false,
+   "runtime": {
+    "flavor": "dotnet",
+    "tfm": "net10.0",
+    "frameworks": [
+     [
+      "Microsoft.NETCore.App",
+      "10.0.0"
+     ]
+    ],
+    "source": "SumECmd.runtimeconfig.json"
+   },
+   "certificate_common_names": [
+    "AAA Certificate Services",
+    "Sectigo Public Code Signing Root R46",
+    "Sectigo Public Code Signing CA R36",
+    "ZimTech LLC",
+    "Sectigo Public Time Stamping Signer R37",
+    "Sectigo Public Time Stamping CA R41",
+    "Sectigo Public Time Stamping Root R46",
+    "USERTrust RSA Certification Authority"
+   ],
+   "has_certificate_table": true,
+   "apphost_member": "SumECmd.exe",
+   "apphost_sha256": "4474eabf2531aeeac9f469f665ba2d4e2319ebfa1d68341e3e2632e6fa96db1c",
+   "static_options": {
+    "-d": "Directory to process, looking for SystemIdentity.mdb, Current.mdb, etc. Required.",
+    "--csv": "Directory to save CSV formatted results to. Be sure to include the full path in double quotes",
+    "--wd": "Generate CSV with day level details. Default is TRUE",
+    "--dt": "The custom date/time format to use when displaying time stamps. See https://goo.gl/CNVq0k for options",
+    "--temp": "Folder for the temporary copies of the UAL databases and their transaction logs, which are opened instead of the evidence and deleted when done. Default: a Temp folder next to SumECmd. A folder that isn't there is created, and removed again when done. If that folder can't be written to, SumECmd stops: give a writable folder with --temp",
+    "--debug": "Show debug information during processing",
+    "--trace": "Show trace information during processing",
+    "--co": "When true, save all console messages to <timestamp>_SumECmd_<version>_ConsoleLog.txt in the --csv directory. Use --co false to turn it off"
+   }
+  },
+  {
+   "tool_id": "timeapp",
+   "flavor": "net10",
+   "archive_name": "TimeApp.zip",
+   "archive_sha256": "b281eec2562c27dc52e881f335857675936f8a1ed2d09796dc49f84d8d7c9b10",
+   "archive_size": 280067,
+   "entry_count": 1,
+   "top_level": [
+    "TimeApp.exe"
+   ],
+   "main_member": "TimeApp.exe",
+   "main_member_sha256": "c4553a255d50c282dd8d774060d1b12f6b18896e8879e4bf3e8e6edf06e6bbc4",
+   "product_version": "2026.10.0",
+   "version": "2026.10.0",
+   "machine": "x64",
+   "architecture": "x64",
+   "single_file_bundle": true,
+   "runtime": {
+    "flavor": "dotnet",
+    "tfm": "net10.0",
+    "frameworks": [
+     [
+      "Microsoft.NETCore.App",
+      "10.0.0"
+     ],
+     [
+      "Microsoft.WindowsDesktop.App",
+      "10.0.0"
+     ]
+    ],
+    "source": "embedded single-file bundle runtimeconfig"
+   },
+   "certificate_common_names": [
+    "AAA Certificate Services",
+    "Sectigo Public Code Signing Root R46",
+    "Sectigo Public Code Signing CA R36",
+    "ZimTech LLC",
+    "Sectigo Public Time Stamping Signer R37",
+    "Sectigo Public Time Stamping CA R41",
+    "Sectigo Public Time Stamping Root R46",
+    "USERTrust RSA Certification Authority"
+   ],
+   "has_certificate_table": true
+  },
+  {
+   "tool_id": "timelineexplorer",
+   "flavor": "net10",
+   "archive_name": "TimelineExplorer.zip",
+   "archive_sha256": "dfb9c3055feabaf57c05d0d380ac17e1f050b2628136caf8ba7be963fd3fed3e",
+   "archive_size": 90488669,
+   "entry_count": 200,
+   "top_level": [
+    "TimelineExplorer"
+   ],
+   "main_member": "TimelineExplorer/TimelineExplorer.exe",
+   "main_member_sha256": "00d9ad1059e0abf0d4cada324885d3fc699a0fcf4020ed927d04eab27c23788c",
+   "product_version": "2026.10.0",
+   "version": "2026.10.0",
+   "machine": "x64",
+   "architecture": "x64",
+   "single_file_bundle": true,
+   "runtime": {
+    "flavor": "dotnet",
+    "tfm": "net10.0",
+    "frameworks": [
+     [
+      "Microsoft.NETCore.App",
+      "10.0.0"
+     ],
+     [
+      "Microsoft.WindowsDesktop.App",
+      "10.0.0"
+     ]
+    ],
+    "source": "embedded single-file bundle runtimeconfig"
+   },
+   "certificate_common_names": [
+    "AAA Certificate Services",
+    "Sectigo Public Code Signing Root R46",
+    "Sectigo Public Code Signing CA R36",
+    "ZimTech LLC",
+    "Sectigo Public Time Stamping Signer R37",
+    "Sectigo Public Time Stamping CA R41",
+    "Sectigo Public Time Stamping Root R46",
+    "USERTrust RSA Certification Authority"
+   ],
+   "has_certificate_table": true,
+   "sidecar_directories": {
+    "Layouts": 191,
+    "Plugins": 7
+   }
+  },
+  {
+   "tool_id": "vscmount",
+   "flavor": "net10",
+   "archive_name": "VSCMount.zip",
+   "archive_sha256": "2fd9f8c3e2e38f6e6eb8998ea9ee2c208c3f3f5c6741467be7683268ee715aca",
+   "archive_size": 1183300,
+   "entry_count": 3,
+   "top_level": [
+    "VSCMount.dll",
+    "VSCMount.exe",
+    "VSCMount.runtimeconfig.json"
+   ],
+   "main_member": "VSCMount.dll",
+   "main_member_sha256": "474d6defbcd436c1195c1f50a57269660191c2ec484b91bd63576d365573812d",
+   "product_version": "2026.10.0+5a3e6473102c652b69f9c3ddeb82e81bebeee817",
+   "version": "2026.10.0",
+   "machine": "x86",
+   "architecture": "anycpu",
+   "single_file_bundle": false,
+   "runtime": {
+    "flavor": "dotnet",
+    "tfm": "net10.0",
+    "frameworks": [
+     [
+      "Microsoft.NETCore.App",
+      "10.0.0"
+     ]
+    ],
+    "source": "VSCMount.runtimeconfig.json"
+   },
+   "certificate_common_names": [
+    "AAA Certificate Services",
+    "Sectigo Public Code Signing Root R46",
+    "Sectigo Public Code Signing CA R36",
+    "ZimTech LLC",
+    "Sectigo Public Time Stamping Signer R37",
+    "Sectigo Public Time Stamping CA R41",
+    "Sectigo Public Time Stamping Root R46",
+    "USERTrust RSA Certification Authority"
+   ],
+   "has_certificate_table": true,
+   "apphost_member": "VSCMount.exe",
+   "apphost_sha256": "aee624a37eaf80381538b310ce76ca332b0d1da54a266a82beacf73434c5b656",
+   "static_options": {
+    "--dl": "Source drive to look for Volume Shadow Copies (C, D:, or F:\\ for example)",
+    "--mp": "The base directory where you want VSCs mapped to",
+    "--ud": "Use VSC creation timestamps (yyyyMMddTHHmmss.fffffff, UTC) in symbolic link names. Default is true. Use --ud false to turn off",
+    "--debug": "Show debug information during processing",
+    "--trace": "Show trace information during processing"
+   }
+  },
+  {
+   "tool_id": "wxtcmd",
+   "flavor": "net10",
+   "archive_name": "WxTCmd.zip",
+   "archive_sha256": "0a0c055ee467bd6800e4300dde5b650f28c11e7447205344fd3bbcd00832bc0e",
+   "archive_size": 3857643,
+   "entry_count": 6,
+   "top_level": [
+    "WxTCmd.dll",
+    "WxTCmd.exe",
+    "WxTCmd.runtimeconfig.json",
+    "e_sqlite3.dll",
+    "libe_sqlite3.dylib",
+    "libe_sqlite3.so"
+   ],
+   "main_member": "WxTCmd.dll",
+   "main_member_sha256": "7558ecd7d004967e768a4bdaa5ffc1d39243e17c9207a39684795a28b0805a39",
+   "product_version": "2026.10.1+5677ea8a6e38e9d9f66970e90b5fb509bdfe06be",
+   "version": "2026.10.1",
+   "machine": "x86",
+   "architecture": "anycpu",
+   "single_file_bundle": false,
+   "runtime": {
+    "flavor": "dotnet",
+    "tfm": "net10.0",
+    "frameworks": [
+     [
+      "Microsoft.NETCore.App",
+      "10.0.0"
+     ]
+    ],
+    "source": "WxTCmd.runtimeconfig.json"
+   },
+   "certificate_common_names": [
+    "AAA Certificate Services",
+    "Sectigo Public Code Signing Root R46",
+    "Sectigo Public Code Signing CA R36",
+    "ZimTech LLC",
+    "Sectigo Public Time Stamping Signer R37",
+    "Sectigo Public Time Stamping CA R41",
+    "Sectigo Public Time Stamping Root R46",
+    "USERTrust RSA Certification Authority"
+   ],
+   "has_certificate_table": true,
+   "apphost_member": "WxTCmd.exe",
+   "apphost_sha256": "df1fb7e2d9df9ab460d48724e6465f55fddbbdf2d6daab162b83e6f483ea4033",
+   "static_options": {
+    "-f": "File to process",
+    "--csv": "Directory to save CSV formatted results to. Be sure to include the full path in double quotes",
+    "--dt": "The custom date/time format to use when displaying time stamps. See https://goo.gl/CNVq0k for options",
+    "--temp": "Folder for the temporary copies of the SQLite databases, which are opened instead of the evidence and deleted when done. Default: a Temp folder next to WxTCmd. A folder that isn't there is created, and removed again when done. If that folder can't be written to, WxTCmd stops: give a writable folder with --temp",
+    "--debug": "Show debug information during processing",
+    "--trace": "Show trace information during processing",
+    "--co": "When true, save all console messages to <timestamp>_WxTCmd_<version>_ConsoleLog.txt in the --csv directory. Use --co false to turn it off",
+    "-wal": "-journal",
+    "-journal": "System.Runtime.Loader.IndividualAssemblyLoadContext"
+   }
+  },
+  {
+   "tool_id": "xwfim",
+   "flavor": "net10",
+   "archive_name": "XWFIM.zip",
+   "archive_sha256": "d8afe6a353f59e16e0bce7d917d2c5637ae30f54f71a1c7b146911f67a135a09",
+   "archive_size": 93943659,
+   "entry_count": 4,
+   "top_level": [
+    "XWFIM"
+   ],
+   "main_member": "XWFIM/XWFIM.exe",
+   "main_member_sha256": "a7512db0f9fa9b340fb51c610f3c57d586f4e70e0762292d2ca303b8e1da5c17",
+   "product_version": "2026.10.1",
+   "version": "2026.10.1",
+   "machine": "x64",
+   "architecture": "x64",
+   "single_file_bundle": true,
+   "runtime": {
+    "flavor": "dotnet",
+    "tfm": "net10.0",
+    "frameworks": [
+     [
+      "Microsoft.NETCore.App",
+      "10.0.0"
+     ],
+     [
+      "Microsoft.WindowsDesktop.App",
+      "10.0.0"
+     ]
+    ],
+    "source": "embedded single-file bundle runtimeconfig"
+   },
+   "certificate_common_names": [
+    "Sectigo Public Code Signing Root R46",
+    "Sectigo Public Code Signing CA R36",
+    "ZimTech LLC",
+    "Sectigo Public Time Stamping Signer R37",
+    "Sectigo Public Time Stamping CA R41",
+    "Sectigo Public Time Stamping Root R46",
+    "USERTrust RSA Certification Authority"
+   ],
+   "has_certificate_table": true
+  }
+ ]
+}

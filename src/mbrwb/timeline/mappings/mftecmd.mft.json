@@ -1,0 +1,72 @@
+{
+ "mapping_id": "mftecmd.mft",
+ "version": 1,
+ "tool_id": "mftecmd",
+ "schema_hints": [
+  "mftecmd.mft"
+ ],
+ "required_columns": [
+  "ParentPath",
+  "FileName",
+  "Created0x10",
+  "LastModified0x10"
+ ],
+ "timestamp_convention": "utc",
+ "convention_basis": "EZ Tools present timestamps in UTC. Evidence in the inspected 2026.10 builds: help texts such as EvtxECmd '--sd Start date for including events (UTC)', MFTECmd '--cutoff ... (UTC unless an offset is given)' and the ISO format string 'yyyy-MM-ddTHH:mm:ss.fffffffZ'. Not yet confirmed against real output on Windows; values are therefore labelled 'tool UTC convention', not 'explicit UTC'.",
+ "object_columns": [
+  "ParentPath",
+  "FileName"
+ ],
+ "events": [
+  {
+   "field": "Created0x10",
+   "meaning": "$STANDARD_INFORMATION created",
+   "category": "File system metadata ($MFT)",
+   "description": "{ParentPath}\\{FileName}"
+  },
+  {
+   "field": "LastModified0x10",
+   "meaning": "$STANDARD_INFORMATION modified",
+   "category": "File system metadata ($MFT)",
+   "description": "{ParentPath}\\{FileName}"
+  },
+  {
+   "field": "LastRecordChange0x10",
+   "meaning": "$STANDARD_INFORMATION MFT record changed",
+   "category": "File system metadata ($MFT)",
+   "description": "{ParentPath}\\{FileName}"
+  },
+  {
+   "field": "LastAccess0x10",
+   "meaning": "$STANDARD_INFORMATION accessed",
+   "category": "File system metadata ($MFT)",
+   "description": "{ParentPath}\\{FileName}"
+  },
+  {
+   "field": "Created0x30",
+   "meaning": "$FILE_NAME created",
+   "category": "File system metadata ($MFT)",
+   "description": "{ParentPath}\\{FileName}"
+  },
+  {
+   "field": "LastModified0x30",
+   "meaning": "$FILE_NAME modified",
+   "category": "File system metadata ($MFT)",
+   "description": "{ParentPath}\\{FileName}"
+  },
+  {
+   "field": "LastRecordChange0x30",
+   "meaning": "$FILE_NAME record changed",
+   "category": "File system metadata ($MFT)",
+   "description": "{ParentPath}\\{FileName}"
+  },
+  {
+   "field": "LastAccess0x30",
+   "meaning": "$FILE_NAME accessed",
+   "category": "File system metadata ($MFT)",
+   "description": "{ParentPath}\\{FileName}"
+  }
+ ],
+ "column_verification": "Column names confirmed as property identifiers in MFTECmd.dll 2026.10.6 (static); a real CSV header from this build has not been observed on the build host.",
+ "notes": "File system timestamps can be changed by software; none of them shows execution."
+}

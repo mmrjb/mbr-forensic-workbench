@@ -1,0 +1,34 @@
+{
+ "mapping_id": "jlecmd.custom",
+ "version": 1,
+ "tool_id": "jlecmd",
+ "schema_hints": [
+  "jlecmd.custom"
+ ],
+ "required_columns": [
+  "SourceFile",
+  "TargetCreated"
+ ],
+ "timestamp_convention": "utc",
+ "convention_basis": "EZ Tools present timestamps in UTC. Evidence in the inspected 2026.10 builds: help texts such as EvtxECmd '--sd Start date for including events (UTC)', MFTECmd '--cutoff ... (UTC unless an offset is given)' and the ISO format string 'yyyy-MM-ddTHH:mm:ss.fffffffZ'. Not yet confirmed against real output on Windows; values are therefore labelled 'tool UTC convention', not 'explicit UTC'.",
+ "object_columns": [
+  "LocalPath",
+  "SourceFile"
+ ],
+ "events": [
+  {
+   "field": "TargetCreated",
+   "meaning": "Target created (as recorded in the embedded shortcut)",
+   "category": "Shortcut target metadata",
+   "description": "{LocalPath}"
+  },
+  {
+   "field": "TargetModified",
+   "meaning": "Target modified (as recorded in the embedded shortcut)",
+   "category": "Shortcut target metadata",
+   "description": "{LocalPath}"
+  }
+ ],
+ "column_verification": "Column names confirmed as property identifiers in JLECmd.dll 2026.10.5 (static); a real CSV header from this build has not been observed on the build host.",
+ "notes": ""
+}

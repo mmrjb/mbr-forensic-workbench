@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mbr-forensic-workbench"
+version = "0.1.0"
+description = "Case-oriented desktop workbench around Eric Zimmerman's forensic tools (not an official EZ Tools or Kroll product)"
+readme = "README.md"
+requires-python = ">=3.12,<3.14"
+license = { text = "Proprietary - owner's choice; see THIRD_PARTY_NOTICES.md for dependencies" }
+authors = [{ name = "MBR Forensic Workbench contributors" }]
+# Exact pins live in requirements/*.txt; these are the compatible ranges.
+dependencies = [
+    "PySide6>=6.8,<6.11",
+    "pydantic>=2.9,<3",
+    "PyYAML>=6.0,<7",
+    "tzdata>=2024.1; sys_platform == 'win32'",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pytest-qt>=4.4"]
+build = ["pyinstaller>=6.10"]
+
+[project.scripts]
+mbr-workbench = "mbrwb.app:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+mbrwb = ["catalogue/data/*.json", "ui/icons/*.svg", "ui/icons/LICENSE.txt", "workflows/presets/*.json", "timeline/mappings/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+markers = [
+    "gui: tests that create Qt widgets (offscreen platform)",
+    "slow: long-running benchmarks (million-row import)",
+    "windows_only: requires Windows APIs (Job Objects, WinVerifyTrust)",
+    "real_tools: requires genuine EZ Tools binaries configured via MBRWB_REAL_TOOLS_DIR",
+]

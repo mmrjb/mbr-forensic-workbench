@@ -1,0 +1,57 @@
+{
+ "mapping_id": "sbecmd.shellbags",
+ "version": 1,
+ "tool_id": "sbecmd",
+ "schema_hints": [
+  "sbecmd.shellbags"
+ ],
+ "required_columns": [
+  "AbsolutePath",
+  "LastWriteTime"
+ ],
+ "timestamp_convention": "utc",
+ "convention_basis": "EZ Tools present timestamps in UTC. Evidence in the inspected 2026.10 builds: help texts such as EvtxECmd '--sd Start date for including events (UTC)', MFTECmd '--cutoff ... (UTC unless an offset is given)' and the ISO format string 'yyyy-MM-ddTHH:mm:ss.fffffffZ'. Not yet confirmed against real output on Windows; values are therefore labelled 'tool UTC convention', not 'explicit UTC'.",
+ "object_columns": [
+  "AbsolutePath"
+ ],
+ "events": [
+  {
+   "field": "LastWriteTime",
+   "meaning": "ShellBag registry key last written (not necessarily a folder visit)",
+   "category": "ShellBags",
+   "description": "{AbsolutePath}"
+  },
+  {
+   "field": "FirstInteracted",
+   "meaning": "First interaction time derived by SBECmd",
+   "category": "ShellBags",
+   "description": "{AbsolutePath}"
+  },
+  {
+   "field": "LastInteracted",
+   "meaning": "Last interaction time derived by SBECmd",
+   "category": "ShellBags",
+   "description": "{AbsolutePath}"
+  },
+  {
+   "field": "CreatedOn",
+   "meaning": "Folder created (as recorded in the shell item)",
+   "category": "Shell item metadata",
+   "description": "{AbsolutePath}"
+  },
+  {
+   "field": "ModifiedOn",
+   "meaning": "Folder modified (as recorded in the shell item)",
+   "category": "Shell item metadata",
+   "description": "{AbsolutePath}"
+  },
+  {
+   "field": "AccessedOn",
+   "meaning": "Folder accessed (as recorded in the shell item)",
+   "category": "Shell item metadata",
+   "description": "{AbsolutePath}"
+  }
+ ],
+ "column_verification": "Column names confirmed as property identifiers in SBECmd.dll 2026.10.2 (static); a real CSV header from this build has not been observed on the build host.",
+ "notes": ""
+}

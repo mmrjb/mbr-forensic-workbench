@@ -1,0 +1,34 @@
+{
+ "mapping_id": "amcache.unassociated",
+ "version": 1,
+ "tool_id": "amcacheparser",
+ "schema_hints": [
+  "amcache.unassociated",
+  "amcache.associated"
+ ],
+ "required_columns": [
+  "FileKeyLastWriteTimestamp",
+  "FullPath"
+ ],
+ "timestamp_convention": "utc",
+ "convention_basis": "EZ Tools present timestamps in UTC. Evidence in the inspected 2026.10 builds: help texts such as EvtxECmd '--sd Start date for including events (UTC)', MFTECmd '--cutoff ... (UTC unless an offset is given)' and the ISO format string 'yyyy-MM-ddTHH:mm:ss.fffffffZ'. Not yet confirmed against real output on Windows; values are therefore labelled 'tool UTC convention', not 'explicit UTC'.",
+ "object_columns": [
+  "FullPath"
+ ],
+ "events": [
+  {
+   "field": "FileKeyLastWriteTimestamp",
+   "meaning": "Amcache file entry key last written (inventory, not execution)",
+   "category": "Program presence (Amcache)",
+   "description": "{FullPath}"
+  },
+  {
+   "field": "LinkDate",
+   "meaning": "PE header link time (set at build time; can be forged)",
+   "category": "PE metadata",
+   "description": "{FullPath}"
+  }
+ ],
+ "column_verification": "Column names confirmed as property identifiers in AmcacheParser.dll 2026.10.1 (static); a real CSV header from this build has not been observed on the build host.",
+ "notes": ""
+}

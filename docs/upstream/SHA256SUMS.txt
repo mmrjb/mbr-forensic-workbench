@@ -1,0 +1,3 @@
+651b677d263bfd1ca239a58bb260b35507a5de9d40713ac43d6e52ef1d2807c5  docs/upstream/KapeDocs-FAQ.md
+214986a87123172330b11b5507a117605e1c999b0fef4758ce112db881d52c23  docs/upstream/KapeDocs-Modules.md
+a1f002bd14c2f4192f02aed7a8570d06a94748434701d49f3a91fac6db08ac13  docs/upstream/KapeDocs-Using-KAPE.md

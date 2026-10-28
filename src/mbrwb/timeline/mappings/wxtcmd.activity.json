@@ -1,0 +1,41 @@
+{
+ "mapping_id": "wxtcmd.activity",
+ "version": 1,
+ "tool_id": "wxtcmd",
+ "schema_hints": [
+  "wxtcmd.activity"
+ ],
+ "required_columns": [
+  "Executable",
+  "StartTime",
+  "LastModifiedTime"
+ ],
+ "timestamp_convention": "utc",
+ "convention_basis": "EZ Tools present timestamps in UTC. Evidence in the inspected 2026.10 builds: help texts such as EvtxECmd '--sd Start date for including events (UTC)', MFTECmd '--cutoff ... (UTC unless an offset is given)' and the ISO format string 'yyyy-MM-ddTHH:mm:ss.fffffffZ'. Not yet confirmed against real output on Windows; values are therefore labelled 'tool UTC convention', not 'explicit UTC'.",
+ "object_columns": [
+  "Executable",
+  "DisplayText"
+ ],
+ "events": [
+  {
+   "field": "StartTime",
+   "meaning": "Windows Timeline activity start",
+   "category": "User activity (Timeline)",
+   "description": "{Executable} {DisplayText}"
+  },
+  {
+   "field": "EndTime",
+   "meaning": "Windows Timeline activity end",
+   "category": "User activity (Timeline)",
+   "description": "{Executable} {DisplayText}"
+  },
+  {
+   "field": "LastModifiedTime",
+   "meaning": "Windows Timeline record last modified",
+   "category": "User activity (Timeline)",
+   "description": "{Executable} {DisplayText}"
+  }
+ ],
+ "column_verification": "Column names confirmed as property identifiers in WxTCmd.dll 2026.10.1 (static); a real CSV header from this build has not been observed on the build host.",
+ "notes": ""
+}

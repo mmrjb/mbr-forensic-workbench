@@ -1,0 +1,3 @@
+Icons in this folder were drawn for MBR Forensic Workbench from simple geometric primitives
+(24x24 grid, 1.75 px stroke). They are part of this project and covered by its license.
+No third-party icon set is included.

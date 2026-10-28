@@ -1,0 +1,27 @@
+{
+ "mapping_id": "rbcmd.entries",
+ "version": 1,
+ "tool_id": "rbcmd",
+ "schema_hints": [
+  "rbcmd.entries"
+ ],
+ "required_columns": [
+  "FileName",
+  "DeletedOn"
+ ],
+ "timestamp_convention": "utc",
+ "convention_basis": "EZ Tools present timestamps in UTC. Evidence in the inspected 2026.10 builds: help texts such as EvtxECmd '--sd Start date for including events (UTC)', MFTECmd '--cutoff ... (UTC unless an offset is given)' and the ISO format string 'yyyy-MM-ddTHH:mm:ss.fffffffZ'. Not yet confirmed against real output on Windows; values are therefore labelled 'tool UTC convention', not 'explicit UTC'.",
+ "object_columns": [
+  "FileName"
+ ],
+ "events": [
+  {
+   "field": "DeletedOn",
+   "meaning": "Moved to the Recycle Bin (deletion time recorded in $I/INFO2)",
+   "category": "Recycle Bin",
+   "description": "{FileName}"
+  }
+ ],
+ "column_verification": "Column names confirmed as property identifiers in RBCmd.dll 2026.10.1 (static); a real CSV header from this build has not been observed on the build host.",
+ "notes": ""
+}
